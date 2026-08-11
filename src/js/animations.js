@@ -84,6 +84,39 @@ export function initCounters() {
   })
 }
 
+export function initHeroSpotlight() {
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  if (!canHover || prefersReduced()) return
+
+  const spotlight = document.querySelector('.hero__spotlight')
+  if (!spotlight) return
+
+  const xTo = gsap.quickTo(spotlight, 'x', { duration: 1.2, ease: 'power3.out' })
+  const yTo = gsap.quickTo(spotlight, 'y', { duration: 1.2, ease: 'power3.out' })
+
+  const hero = document.querySelector('.hero')
+
+  hero.addEventListener('pointermove', (e) => {
+    const r = hero.getBoundingClientRect()
+    xTo(e.clientX - r.left - r.width / 2)
+    yTo(e.clientY - r.top - r.height / 2)
+  })
+}
+
+export function initScrollProgress() {
+  const bar = document.querySelector('.scroll-progress span')
+  if (!bar) return
+
+  const update = () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight
+    const p = h > 0 ? window.scrollY / h : 0
+    bar.style.transform = `scaleX(${p})`
+  }
+
+  window.addEventListener('scroll', update, { passive: true })
+  update()
+}
+
 export function initParallax() {
   if (prefersReduced()) return
 
@@ -107,5 +140,19 @@ export function initParallax() {
       end: 'bottom top',
       scrub: true
     }
+  })
+
+  // Parallax des chips flottants
+  gsap.utils.toArray('.hero__chip').forEach((chip) => {
+    gsap.to(chip, {
+      yPercent: 40,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    })
   })
 }

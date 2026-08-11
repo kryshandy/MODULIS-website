@@ -55,9 +55,95 @@
   }
 }
 
+.hero__spotlight {
+  position: absolute;
+  width: 680px;
+  height: 680px;
+  top: 50%;
+  left: 50%;
+  margin: -340px 0 0 -340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.16), transparent 60%);
+  filter: blur(30px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+
+  .is-loaded & {
+    opacity: 1;
+  }
+}
+
+// Chips flottants
+.hero__chips {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  @media (max-width: $bp-md) {
+    display: none;
+  }
+}
+
+.hero__chip {
+  position: absolute;
+  font-family: $font-mono;
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 100px;
+  padding: 12px 22px;
+  animation: chip-drift 9s ease-in-out infinite alternate;
+
+  &--1 {
+    top: 22%;
+    right: 12%;
+    animation-delay: 0s;
+  }
+
+  &--2 {
+    top: 38%;
+    left: 6%;
+    animation-delay: -3s;
+  }
+
+  &--3 {
+    bottom: 24%;
+    right: 18%;
+    animation-delay: -6s;
+  }
+
+  &--4 {
+    bottom: 34%;
+    left: 16%;
+    animation-delay: -1.5s;
+  }
+}
+
+@keyframes chip-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-14px, 22px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__chip {
+    animation: none;
+  }
+}
+
 .hero__inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero__eyebrow {
@@ -150,6 +236,71 @@
 
   @media (max-width: $bp-sm) {
     gap: 20px;
+  }
+}
+
+// Badge rotatif
+.hero__badge {
+  position: absolute;
+  right: calc(#{$gutter} + 10px);
+  bottom: 100px;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid $line-strong;
+  background: rgba(10, 10, 18, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 1s ease 1.4s, border-color 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  .is-loaded & {
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: rgba(124, 92, 255, 0.6);
+    transform: scale(1.06);
+  }
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: badge-spin 16s linear infinite;
+  }
+
+  text {
+    font-family: $font-display;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    fill: $text-muted;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: $bp-lg) {
+    display: none;
+  }
+}
+
+.hero__badge-arrow {
+  font-size: 26px;
+  color: $cyan;
+}
+
+@keyframes badge-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__badge svg {
+    animation: none;
   }
 }
 

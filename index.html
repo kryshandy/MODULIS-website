@@ -41,6 +41,12 @@
     <span class="cursor__label"></span>
   </div>
 
+  <!-- Grain / texture premium -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
   <!-- Navigation -->
   <header class="nav" id="top">
     <div class="nav__inner container">
@@ -97,6 +103,14 @@
         <div class="hero__grid"></div>
         <div class="hero__glow hero__glow--1"></div>
         <div class="hero__glow hero__glow--2"></div>
+        <div class="hero__spotlight"></div>
+      </div>
+
+      <div class="hero__chips" aria-hidden="true">
+        <span class="hero__chip hero__chip--1">Branding</span>
+        <span class="hero__chip hero__chip--2">Web &amp; Apps</span>
+        <span class="hero__chip hero__chip--3">Automation</span>
+        <span class="hero__chip hero__chip--4">Growth</span>
       </div>
 
       <div class="hero__inner container">
@@ -125,6 +139,20 @@
             <a href="#contact" class="btn btn--text">Parler de votre projet <span>→</span></a>
           </div>
         </div>
+
+        <a class="hero__badge" href="#about" aria-label="Découvrir MODULIS" data-cursor-label="Découvrir">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <path id="badge-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" />
+            </defs>
+            <text>
+              <textPath href="#badge-circle">
+                MODULIS • DIGITAL • STRATEGIE • BRANDING •
+              </textPath>
+            </text>
+          </svg>
+          <span class="hero__badge-arrow" aria-hidden="true">↗</span>
+        </a>
 
         <div class="hero__scroll" aria-hidden="true">
           <span>Scroll</span>

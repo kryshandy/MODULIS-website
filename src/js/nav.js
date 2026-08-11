@@ -9,6 +9,17 @@ export function initNav() {
   const navLinks = document.querySelectorAll('.nav__link')
   const sections = document.querySelectorAll('section[id], #hero')
 
+  // Tous les liens d'ancrage passent par le smooth scroll Lenis
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    if (link.closest('.nav__link, .mobile-menu__link')) return
+    link.addEventListener('click', (e) => {
+      const target = link.getAttribute('href')
+      if (!target || target === '#') return
+      e.preventDefault()
+      scrollToTarget(target)
+    })
+  })
+
   const onScroll = () => {
     nav.classList.toggle('is-scrolled', window.scrollY > 40)
     updateActiveLink()
