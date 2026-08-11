@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MODULIS — Agence Digitale & Créative</title>
   <meta name="description" content="MODULIS conçoit des expériences digitales sur mesure : communication, branding, développement web & app, automatisation. Construisons votre succès digital." />
-  <meta name="theme-color" content="#06060B" />
+  <meta name="theme-color" content="#F7F4EF" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="MODULIS" />
   <meta property="og:title" content="MODULIS — Agence Digitale & Créative" />
@@ -35,7 +35,18 @@
   <!-- Preloader -->
   <div class="preloader" aria-hidden="true">
     <div class="preloader__inner">
-      <span class="preloader__logo">MODULIS<span class="preloader__dot">.</span></span>
+      <span class="preloader__logo">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="19.5" cy="13" r="6.5" fill="#0F7C7C"/>
+          <path d="M12.5 51 C13.5 38 15 24 20 16.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M16 28 C22 33 27 37 32 41.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="44.5" cy="13" r="6.5" fill="#20C7C9"/>
+          <path d="M51.5 51 C50.5 38 49 24 44 16.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M48 28 C42 33 37 37 32 41.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="32" cy="41.5" r="3" fill="#FF6B57"/>
+        </svg>
+        MODULIS<span class="preloader__dot">.</span>
+      </span>
       <div class="preloader__bar"><span class="preloader__bar-fill"></span></div>
       <span class="preloader__count">0</span>
     </div>
@@ -59,14 +70,13 @@
     <div class="nav__inner container">
       <a href="#top" class="nav__brand" aria-label="MODULIS — retour à l'accueil">
         <svg class="nav__mark" viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
-          <rect width="64" height="64" rx="16" fill="#7C5CFF" opacity="0.12"/>
-          <path d="M14 44 L26 20 L32 36 L38 20 L50 44" stroke="url(#g)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#7C5CFF"/>
-              <stop offset="1" stop-color="#22D3EE"/>
-            </linearGradient>
-          </defs>
+          <circle cx="19.5" cy="13" r="6.5" fill="#0F7C7C"/>
+          <path d="M12.5 51 C13.5 38 15 24 20 16.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M16 28 C22 33 27 37 32 41.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="44.5" cy="13" r="6.5" fill="#20C7C9"/>
+          <path d="M51.5 51 C50.5 38 49 24 44 16.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M48 28 C42 33 37 37 32 41.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="32" cy="41.5" r="3" fill="#FF6B57"/>
         </svg>
         <span class="nav__name">MODULIS<span class="nav__dot">.</span></span>
       </a>
@@ -79,7 +89,7 @@
         <a class="nav__link" href="#contact"><span class="nav__num">05</span>Contact</a>
       </nav>
 
-      <a href="#contact" class="btn btn--ghost nav__cta">Démarrer un projet</a>
+      <a href="#contact" class="btn btn--warm nav__cta">Démarrer un projet</a>
 
       <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span>
@@ -432,7 +442,7 @@
         <div class="work__grid" id="work-grid">
           <article class="work__card reveal" data-cat="Branding" data-cursor-label="Voir">
             <div class="work__visual">
-              <div class="work__visual-inner" style="--hue: 255">
+              <div class="work__visual-inner" style="--hue: 175">
                 <span class="work__monogram">K</span>
                 <div class="work__orbs"><i></i><i></i><i></i></div>
               </div>
@@ -464,7 +474,7 @@
 
           <article class="work__card reveal" data-cat="Automation" data-cursor-label="Voir">
             <div class="work__visual">
-              <div class="work__visual-inner" style="--hue: 320">
+              <div class="work__visual-inner" style="--hue: 160">
                 <span class="work__monogram">O</span>
                 <div class="work__orbs"><i></i><i></i><i></i></div>
               </div>
@@ -480,7 +490,7 @@
 
           <article class="work__card reveal" data-cat="Marketing" data-cursor-label="Voir">
             <div class="work__visual">
-              <div class="work__visual-inner" style="--hue: 145">
+              <div class="work__visual-inner" style="--hue: 12">
                 <span class="work__monogram">P</span>
                 <div class="work__orbs"><i></i><i></i><i></i></div>
               </div>
@@ -599,7 +609,7 @@
               <label for="message">Votre projet *</label>
               <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet, vos objectifs, vos délais…" required></textarea>
             </div>
-            <button type="submit" class="btn btn--primary btn--lg field--full">
+            <button type="submit" class="btn btn--warm btn--lg field--full">
               Envoyer ma demande
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -642,6 +652,15 @@
     <div class="container">
       <div class="footer__top">
         <a href="#top" class="footer__brand" aria-label="MODULIS — retour en haut">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="19.5" cy="13" r="6.5" fill="#0F7C7C"/>
+            <path d="M12.5 51 C13.5 38 15 24 20 16.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M16 28 C22 33 27 37 32 41.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="44.5" cy="13" r="6.5" fill="#20C7C9"/>
+            <path d="M51.5 51 C50.5 38 49 24 44 16.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M48 28 C42 33 37 37 32 41.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="32" cy="41.5" r="3" fill="#FF6B57"/>
+          </svg>
           MODULIS<span class="nav__dot">.</span>
         </a>
         <a href="#top" class="footer__top-link">Retour en haut <span>↑</span></a>

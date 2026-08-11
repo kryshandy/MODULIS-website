@@ -1,10 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#7C5CFF"/>
-      <stop offset="1" stop-color="#22D3EE"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="16" fill="#0A0A12"/>
-  <path d="M14 44 L26 20 L32 36 L38 20 L50 44" stroke="url(#g)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Favicon MODULIS : M formé par deux figures qui se rejoignent -->
+  <rect width="64" height="64" rx="16" fill="#0F7C7C"/>
+  <g fill="none" stroke="#F7F4EF" stroke-width="7" stroke-linecap="round">
+    <path d="M12.5 51 C13.5 38 15 24 20 16.5"/>
+    <path d="M16 28 C22 33 27 37 32 41.5"/>
+    <path d="M51.5 51 C50.5 38 49 24 44 16.5"/>
+    <path d="M48 28 C42 33 37 37 32 41.5"/>
+  </g>
+  <g fill="#F7F4EF">
+    <circle cx="19.5" cy="13" r="6.5"/>
+    <circle cx="44.5" cy="13" r="6.5"/>
+  </g>
 </svg>
