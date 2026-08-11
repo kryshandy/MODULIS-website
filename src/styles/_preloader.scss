@@ -11,8 +11,9 @@
   height: 200%;
   z-index: 9000;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
   animation: grain-shift 8s steps(10) infinite;
 
   @keyframes grain-shift {
@@ -53,7 +54,7 @@
     background: $gradient;
     transform: scaleX(0);
     transform-origin: left;
-    box-shadow: 0 0 12px rgba(124, 92, 255, 0.7);
+    box-shadow: 0 0 12px rgba($teal, 0.6);
   }
 }
 
@@ -84,23 +85,28 @@
 }
 
 .preloader__logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-family: $font-display;
   font-size: clamp(30px, 6vw, 52px);
   font-weight: 600;
   letter-spacing: 0.04em;
+
+  svg {
+    width: 54px;
+    height: 54px;
+  }
 }
 
 .preloader__dot {
-  background: $gradient;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: $coral;
 }
 
 .preloader__bar {
   width: min(260px, 60vw);
   height: 2px;
-  background: $surface-2;
+  background: rgba($graphite, 0.1);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -193,7 +199,7 @@
         width: 84px;
         height: 84px;
         margin: -42px 0 0 -42px;
-        background: rgba(124, 92, 255, 0.95);
+        background: rgba($teal, 0.95);
         border-color: transparent;
       }
 

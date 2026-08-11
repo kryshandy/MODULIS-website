@@ -14,7 +14,7 @@
   border-bottom: 1px solid transparent;
 
   &.is-scrolled {
-    background: rgba(6, 6, 11, 0.72);
+    background: rgba($bg, 0.82);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom-color: $line;
@@ -47,10 +47,7 @@
 }
 
 .nav__dot {
-  background: $gradient;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: $coral;
 }
 
 .nav__links {
@@ -99,7 +96,7 @@
 .nav__num {
   font-family: $font-mono;
   font-size: 10px;
-  color: $cyan;
+  color: $teal;
 }
 
 .nav__cta {
@@ -119,6 +116,7 @@
   border-radius: 12px;
   border: 1px solid $line-strong;
   align-items: center;
+  background: transparent;
 
   span {
     display: block;
@@ -154,7 +152,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 120px $gutter 48px;
-  background: rgba(6, 6, 11, 0.97);
+  background: rgba($bg, 0.97);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   opacity: 0;
@@ -169,7 +167,7 @@
     top: -160px;
     right: -160px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(124, 92, 255, 0.22), transparent 65%);
+    background: radial-gradient(circle, rgba($teal, 0.16), transparent 65%);
     filter: blur(60px);
     pointer-events: none;
   }
@@ -182,7 +180,7 @@
     bottom: -140px;
     left: -140px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.14), transparent 65%);
+    background: radial-gradient(circle, rgba($turquoise, 0.12), transparent 65%);
     filter: blur(60px);
     pointer-events: none;
   }
@@ -218,7 +216,7 @@
   span {
     font-family: $font-mono;
     font-size: 13px;
-    color: $cyan;
+    color: $teal;
   }
 
   &:hover {
@@ -266,7 +264,7 @@
     transition: color 0.3s ease;
 
     &:hover {
-      color: $cyan;
+      color: $teal;
     }
   }
 }

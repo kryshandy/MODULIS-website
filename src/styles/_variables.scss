@@ -1,22 +1,29 @@
 // ============================================================
-// MODULIS — Design System
+// MODULIS — Design System v2 (Charte graphique officielle)
+// Teal profond · Turquoise · Corail · Graphite · Ivoire
 // ============================================================
 
-// Palette
-$bg: #06060b;
-$bg-soft: #0a0a12;
-$surface: #10101a;
-$surface-2: #15151f;
-$line: rgba(255, 255, 255, 0.08);
-$line-strong: rgba(255, 255, 255, 0.16);
+// Charte officielle
+$teal: #0f7c7c;        // confiance & stabilité — couleur primaire
+$turquoise: #20c7c9;   // accent dynamique — liens, éléments actifs
+$coral: #ff6b57;       // accent humain — parcimonie : points, CTA, détails
+$graphite: #1f2a30;    // texte principal & monochrome
+$ivoire: #f7f4ef;      // fond principal doux & premium
 
-$text: #f4f4f7;
-$text-muted: #9b9ba8;
-$text-dim: #6b6b78;
+// Dérivés
+$bg: $ivoire;
+$bg-soft: #f1ede5;
+$surface: #ffffff;
+$surface-2: #f5f1ea;
+$line: rgba($graphite, 0.08);
+$line-strong: rgba($graphite, 0.18);
 
-$violet: #7c5cff;
-$cyan: #22d3ee;
-$gradient: linear-gradient(135deg, $violet 0%, $cyan 100%);
+$text: $graphite;
+$text-muted: #5b6b74;
+$text-dim: #93a0a8;
+
+$gradient: linear-gradient(135deg, $teal 0%, $turquoise 100%);
+$gradient-warm: linear-gradient(135deg, $coral 0%, #ff8b6b 100%);
 
 // Typographie
 $font-display: 'Space Grotesk', 'Inter', sans-serif;

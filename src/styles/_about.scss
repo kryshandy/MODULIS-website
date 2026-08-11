@@ -48,16 +48,16 @@
 
   span {
     border-radius: 14px;
-    background: $surface-2;
+    background: $surface;
     border: 1px solid $line;
     opacity: 0;
     will-change: transform, opacity;
 
     &.is-m {
-      background: rgba(124, 92, 255, 0.16);
-      border-color: rgba(124, 92, 255, 0.45);
-      box-shadow: 0 0 18px rgba(124, 92, 255, 0.22),
-        inset 0 0 12px rgba(124, 92, 255, 0.1);
+      background: rgba($teal, 0.12);
+      border-color: rgba($teal, 0.4);
+      box-shadow: 0 0 18px rgba($teal, 0.14),
+        inset 0 0 12px rgba($teal, 0.06);
     }
 
     &.is-on {
@@ -132,9 +132,9 @@
   display: grid;
   place-items: center;
   border-radius: 12px;
-  background: rgba(124, 92, 255, 0.1);
-  border: 1px solid rgba(124, 92, 255, 0.25);
-  color: $cyan;
+  background: rgba($teal, 0.08);
+  border: 1px solid rgba($teal, 0.25);
+  color: $teal;
   font-size: 15px;
 }
 
@@ -165,7 +165,7 @@
 }
 
 .stat {
-  background: $bg-soft;
+  background: $surface;
   padding: clamp(26px, 3vw, 44px);
   display: flex;
   flex-direction: column;

@@ -1,5 +1,9 @@
 @use 'variables' as *;
 
+// ============================================================
+// Reset
+// ============================================================
+
 *,
 *::before,
 *::after {
@@ -63,12 +67,12 @@ button {
 }
 
 ::selection {
-  background: rgba(124, 92, 255, 0.35);
-  color: #fff;
+  background: rgba($turquoise, 0.35);
+  color: $graphite;
 }
 
 :focus-visible {
-  outline: 2px solid $cyan;
+  outline: 2px solid $turquoise;
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -83,12 +87,12 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262636;
+  background: #c8c2b8;
   border-radius: 8px;
   border: 2px solid $bg;
 
   &:hover {
-    background: #34344a;
+    background: $teal;
   }
 }
 

@@ -45,7 +45,7 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(ellipse 120% 90% at 50% 110%,
-        rgba(124, 92, 255, 0.14), transparent 60%);
+        rgba($teal, 0.07), transparent 60%);
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
@@ -74,7 +74,7 @@
     }
 
     .service__icon {
-      color: $cyan;
+      color: $turquoise;
       transform: rotate(4deg) scale(1.08);
     }
   }
@@ -97,7 +97,7 @@
   line-height: 1;
   letter-spacing: -0.04em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+  -webkit-text-stroke: 1px rgba($graphite, 0.06);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
@@ -121,7 +121,7 @@
 }
 
 .service__icon {
-  color: $violet;
+  color: $teal;
   transition: color 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
   svg {
@@ -155,14 +155,15 @@
     font-family: $font-mono;
     font-size: 11.5px;
     letter-spacing: 0.06em;
-    color: $text-dim;
+    color: $text-muted;
     border: 1px solid $line;
     border-radius: 100px;
     padding: 6px 13px;
+    background: rgba(#fff, 0.5);
     transition: border-color 0.3s ease, color 0.3s ease;
 
     &:hover {
-      border-color: rgba(124, 92, 255, 0.5);
+      border-color: rgba($teal, 0.5);
       color: $text;
     }
   }
@@ -178,7 +179,7 @@
   color: $text;
 
   span {
-    color: $cyan;
+    color: $teal;
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 

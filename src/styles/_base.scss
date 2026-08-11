@@ -38,7 +38,7 @@
   margin-bottom: 22px;
 
   span {
-    color: $cyan;
+    color: $teal;
   }
 
   &::after {
@@ -90,7 +90,8 @@
   letter-spacing: 0.01em;
   white-space: nowrap;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    background 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
   will-change: transform;
 
   svg {
@@ -107,13 +108,27 @@
 .btn--primary {
   background: $gradient;
   color: #fff;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-    0 12px 40px -12px rgba(124, 92, 255, 0.55);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 12px 32px -12px rgba($teal, 0.5);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,
-      0 18px 50px -12px rgba(34, 211, 238, 0.5);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14) inset,
+      0 16px 40px -12px rgba($turquoise, 0.55);
+  }
+}
+
+// CTA chauds : corail, réservé aux moments de conversion
+.btn--warm {
+  background: $gradient-warm;
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 12px 32px -12px rgba($coral, 0.55);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14) inset,
+      0 16px 44px -12px rgba($coral, 0.6);
   }
 }
 
@@ -122,10 +137,11 @@
   color: $text;
   padding: 12px 24px;
   font-size: 14px;
+  background: transparent;
 
   &:hover {
-    border-color: $violet;
-    background: rgba(124, 92, 255, 0.08);
+    border-color: $teal;
+    background: rgba($teal, 0.06);
   }
 }
 
@@ -135,7 +151,7 @@
   gap: 8px;
 
   span {
-    color: $cyan;
+    color: $teal;
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 

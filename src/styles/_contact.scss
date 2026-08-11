@@ -18,7 +18,7 @@
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(124, 92, 255, 0.18), transparent 62%);
+  background: radial-gradient(circle, rgba($teal, 0.1), transparent 62%);
   filter: blur(60px);
   pointer-events: none;
 }
@@ -85,7 +85,7 @@
   textarea {
     width: 100%;
     background: $surface;
-    border: 1px solid $line;
+    border: 1px solid rgba($graphite, 0.14);
     border-radius: 14px;
     padding: 15px 18px;
     font-size: 15px;
@@ -99,26 +99,26 @@
     }
 
     &:hover {
-      border-color: $line-strong;
+      border-color: rgba($graphite, 0.28);
     }
 
     &:focus {
       outline: none;
-      border-color: $violet;
-      background: $surface-2;
-      box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.12);
+      border-color: $teal;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba($teal, 0.1);
     }
   }
 
   select {
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239b9ba8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235b6b74' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 18px center;
     padding-right: 46px;
 
     option {
-      background: $surface-2;
+      background: $surface;
     }
   }
 
@@ -129,8 +129,8 @@
 
   &.is-invalid input,
   &.is-invalid textarea {
-    border-color: #f87171;
-    box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.12);
+    border-color: $coral;
+    box-shadow: 0 0 0 4px rgba($coral, 0.12);
   }
 }
 
@@ -144,7 +144,7 @@
 
 .contact__form-note {
   font-size: 14px;
-  color: $cyan;
+  color: $teal;
   min-height: 20px;
 }
 
@@ -185,7 +185,7 @@
       font-family: $font-display;
 
       &:hover {
-        color: $cyan;
+        color: $teal;
       }
     }
   }
@@ -201,12 +201,12 @@
 
   span {
     font-size: 13px;
-    color: $cyan;
+    color: $teal;
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &:hover {
-    color: $cyan;
+    color: $teal;
 
     span {
       transform: translate(3px, -3px);

@@ -27,7 +27,8 @@
   background: $surface;
   border: 1px solid $line;
   border-radius: 20px;
-  transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
 
   &::before {
     content: '“';
@@ -37,18 +38,19 @@
     font-family: $font-display;
     font-size: 88px;
     line-height: 1;
-    color: rgba(124, 92, 255, 0.16);
+    color: rgba($teal, 0.12);
     pointer-events: none;
   }
 
   &:hover {
-    border-color: rgba(124, 92, 255, 0.4);
+    border-color: rgba($teal, 0.35);
     transform: translateY(-6px);
+    box-shadow: 0 20px 50px -24px rgba($teal, 0.28);
   }
 }
 
 .testimonial__stars {
-  color: #f5b759;
+  color: $coral;
   font-size: 15px;
   letter-spacing: 4px;
   line-height: 1;
@@ -57,7 +59,7 @@
 .testimonial blockquote {
   font-size: 16px;
   line-height: 1.75;
-  color: #d7d7e0;
+  color: $text;
   flex: 1;
 
   @media (max-width: $bp-lg) {

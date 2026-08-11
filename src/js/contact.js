@@ -7,7 +7,7 @@ export function initContactForm() {
   const setNote = (text, ok = false) => {
     if (!note) return
     note.textContent = text
-    note.style.color = ok ? '#22d3ee' : '#f87171'
+    note.style.color = ok ? '#0F7C7C' : '#FF6B57'
   }
 
   form.addEventListener('submit', (e) => {
