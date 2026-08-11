@@ -3,16 +3,18 @@ import { gsap } from 'gsap'
 export function initPreloader() {
   const preloader = document.querySelector('.preloader')
   const fill = document.querySelector('.preloader__bar-fill')
+  const count = document.querySelector('.preloader__count')
   if (!preloader) return
 
   const state = { progress: 0 }
 
-  const counterTween = gsap.to(state, {
+  gsap.to(state, {
     progress: 100,
     duration: 1.4,
     ease: 'power2.inOut',
     onUpdate: () => {
       if (fill) fill.style.width = `${state.progress}%`
+      if (count) count.textContent = `${Math.round(state.progress)}%`
     }
   })
 

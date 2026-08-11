@@ -113,6 +113,14 @@
   border-radius: 2px;
 }
 
+.preloader__count {
+  font-family: $font-mono;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: $text-dim;
+  font-variant-numeric: tabular-nums;
+}
+
 // ============================================================
 // Curseur personnalisé (desktop uniquement)
 // ============================================================
