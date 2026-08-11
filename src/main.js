@@ -7,6 +7,7 @@ import { initNav } from './js/nav'
 import { initHeroIntro, initScrollReveals, initCounters, initParallax, initScrollProgress, initHeroSpotlight, initProcessTimeline } from './js/animations'
 import { initContactForm } from './js/contact'
 import { initModulesGrid } from './js/modules'
+import { initWorkFilters } from './js/work'
 
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.footer__year').textContent = new Date().getFullYear()
@@ -23,5 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress()
   initModulesGrid()
   initProcessTimeline()
+  initWorkFilters()
   initContactForm()
 })
