@@ -51,7 +51,7 @@ for (const id of sectionIds) {
 }
 
 // 5. No horizontal overflow (wide set)
-const widths = [390, 768, 1024, 1440, 1920]
+const widths = [375, 390, 428, 768, 1024, 1280, 1440, 1920]
 for (const w of widths) {
   await page.setViewportSize({ width: w, height: 900 })
   await page.waitForTimeout(300)
@@ -130,7 +130,34 @@ const invalidShown = await page.evaluate(() => document.querySelectorAll('.field
 const noteText = await page.evaluate(() => document.querySelector('.contact__form-note').textContent)
 check('validation formulaire', invalidShown >= 3 && noteText.length > 0, `${invalidShown} champs invalides — "${noteText}"`)
 
-// 11. Anchor smooth scroll to services
+// 11. Work filters
+await page.evaluate(() => document.querySelector('.work__filter-btn[data-filter="Branding"]').click())
+await page.waitForTimeout(1300)
+const brandingVisible = await page.evaluate(() => {
+  const visible = [...document.querySelectorAll('.work__card')]
+    .filter((c) => c.style.display !== 'none')
+  return visible.length === 1 && visible[0].dataset.cat === 'Branding'
+})
+check('filtre Branding', brandingVisible)
+
+await page.evaluate(() => document.querySelector('.work__filter-btn[data-filter="all"]').click())
+await page.waitForTimeout(1300)
+const allVisible = await page.evaluate(() => {
+  return [...document.querySelectorAll('.work__card')].every((c) => c.style.display !== 'none')
+})
+check('filtre Tous', allVisible)
+
+// 12. Modules grid animée (about)
+await page.evaluate(() => document.querySelector('#modules-grid')?.scrollIntoView())
+await page.waitForTimeout(1600)
+const modulesOn = await page.evaluate(() => {
+  const cells = document.querySelectorAll('#modules-grid span')
+  const on = [...cells].filter((c) => parseFloat(getComputedStyle(c).opacity) > 0.5).length
+  return { total: cells.length, on }
+})
+check('grille modulaire activée', modulesOn.total === 36 && modulesOn.on === 36, JSON.stringify(modulesOn))
+
+// 13. Anchor smooth scroll to services
 await page.evaluate(() => document.querySelector('.nav__link[href="#services"]').click())
 await page.waitForTimeout(2200)
 const scrolled = await page.evaluate(() => {
