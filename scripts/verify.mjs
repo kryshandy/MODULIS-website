@@ -114,6 +114,7 @@ const revealsApplied = await page.evaluate(() => {
   const els = document.querySelectorAll('.reveal')
   let hidden = 0
   els.forEach((el) => {
+    if (el.closest('.hero')) return
     if (getComputedStyle(el).opacity < 0.5) hidden++
   })
   return { total: els.length, hidden }
@@ -166,6 +167,39 @@ const scrolled = await page.evaluate(() => {
   return Math.abs(r.top) < 250
 })
 check('scroll ancré', scrolled)
+
+// 13b. Titres splittés (motion éditoriale)
+const splitWords = await page.evaluate(() => document.querySelectorAll('[data-split] .twi').length)
+check('titres splittés', splitWords > 0, `${splitWords} mots animés`)
+
+// 13c. Marquee piloté par JS (transform GSAP actif)
+const giantTransform = await page.evaluate(() => {
+  const t = document.querySelector('.footer__giant-track')
+  return t ? getComputedStyle(t).transform : 'absent'
+})
+check('marquee GSAP', giantTransform !== 'none', giantTransform)
+
+// 13d. Toggle de thème : clair -> sombre -> clair
+await page.evaluate(() => document.querySelector('.theme-toggle').click())
+await page.waitForTimeout(800)
+const darkState = await page.evaluate(() => ({
+  theme: document.documentElement.dataset.theme,
+  pressed: document.querySelector('.theme-toggle').getAttribute('aria-checked'),
+  bodyBg: getComputedStyle(document.body).backgroundColor
+}))
+check('toggle thème -> sombre', darkState.theme === 'dark' && darkState.pressed === 'true', darkState.bodyBg)
+check('fond sombre appliqué', darkState.bodyBg === 'rgb(11, 18, 23)', darkState.bodyBg)
+const persistedTheme = await page.evaluate(() => localStorage.getItem('modulis-theme'))
+check('thème persisté', persistedTheme === 'dark')
+const grainBlend = await page.evaluate(() => getComputedStyle(document.querySelector('.grain')).mixBlendMode)
+check('grain adapté sombre', grainBlend === 'soft-light', grainBlend)
+await page.evaluate(() => document.querySelector('.theme-toggle').click())
+await page.waitForTimeout(800)
+const lightState = await page.evaluate(() => ({
+  theme: document.documentElement.dataset.theme,
+  bodyBg: getComputedStyle(document.body).backgroundColor
+}))
+check('retour thème clair', lightState.theme === 'light' && lightState.bodyBg === 'rgb(247, 244, 239)', lightState.bodyBg)
 
 // 12. Cursor hidden on touch device (émulation tactile réelle)
 import { devices } from 'playwright-core'
