@@ -1,0 +1,227 @@
+@use 'variables' as *;
+
+// ============================================================
+// Contact
+// ============================================================
+
+.contact {
+  background: $bg-soft;
+  border-top: 1px solid $line;
+  overflow: hidden;
+}
+
+.contact__glow {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  top: -320px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.18), transparent 62%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.contact__head {
+  position: relative;
+  max-width: 780px;
+  margin-bottom: clamp(48px, 7vw, 80px);
+}
+
+.contact__title {
+  font-family: $font-display;
+  font-weight: 500;
+  font-size: clamp(34px, 6vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+
+  em {
+    font-style: normal;
+    background: $gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.contact__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  label {
+    font-family: $font-mono;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $text-dim;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: 14px;
+    padding: 15px 18px;
+    font-size: 15px;
+    color: $text;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+
+    &::placeholder {
+      color: $text-dim;
+    }
+
+    &:hover {
+      border-color: $line-strong;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $violet;
+      background: $surface-2;
+      box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.12);
+    }
+  }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239b9ba8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 46px;
+
+    option {
+      background: $surface-2;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  &.is-invalid input,
+  &.is-invalid textarea {
+    border-color: #f87171;
+    box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.12);
+  }
+}
+
+.field--full {
+  grid-column: 1 / -1;
+
+  @media (max-width: $bp-sm) {
+    grid-column: auto;
+  }
+}
+
+.contact__form-note {
+  font-size: 14px;
+  color: $cyan;
+  min-height: 20px;
+}
+
+// Sidebar
+.contact__side {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid $line;
+  border-radius: 20px;
+  background: $surface;
+
+  h3 {
+    font-family: $font-mono;
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $text-dim;
+    margin-bottom: 14px;
+  }
+}
+
+.contact__block {
+  padding-bottom: 28px;
+  border-bottom: 1px solid $line;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  & > p {
+    font-size: 16px;
+
+    a {
+      transition: color 0.3s ease;
+      font-family: $font-display;
+
+      &:hover {
+        color: $cyan;
+      }
+    }
+  }
+}
+
+.contact__socials li a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 16px;
+  padding-block: 5px;
+  transition: color 0.3s ease;
+
+  span {
+    font-size: 13px;
+    color: $cyan;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover {
+    color: $cyan;
+
+    span {
+      transform: translate(3px, -3px);
+    }
+  }
+}
+
+.contact__availability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: $text-muted;
+
+  .hero__status {
+    animation-duration: 1.8s;
+  }
+}

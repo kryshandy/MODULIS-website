@@ -1,0 +1,74 @@
+@use 'variables' as *;
+
+// ============================================================
+// Marquee
+// ============================================================
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding-block: 26px;
+  border-top: 1px solid $line;
+  border-bottom: 1px solid $line;
+  background: $bg-soft;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(90deg, $bg, transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(-90deg, $bg, transparent);
+  }
+}
+
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.marquee__track > span {
+  font-family: $font-display;
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: $text-muted;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $text;
+  }
+}
+
+.marquee__track > i {
+  font-style: normal;
+  color: $violet;
+  font-size: 14px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

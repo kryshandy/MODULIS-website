@@ -1,0 +1,139 @@
+@use 'variables' as *;
+
+// ============================================================
+// À propos
+// ============================================================
+
+.about {
+  background: $bg-soft;
+  border-block: 1px solid $line;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(40px, 6vw, 96px);
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about__head {
+  margin-bottom: 0;
+
+  .section__title {
+    font-size: clamp(28px, 4vw, 48px);
+  }
+}
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about__lead {
+  font-family: $font-display;
+  font-size: clamp(20px, 2.4vw, 27px);
+  line-height: 1.35;
+  font-weight: 400;
+
+  em {
+    font-style: normal;
+    background: $gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.about__text {
+  color: $text-muted;
+  line-height: 1.75;
+  max-width: 60ch;
+}
+
+.about__values {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 18px;
+  padding-top: 26px;
+  border-top: 1px solid $line;
+}
+
+.about__value {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.about__value-icon {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(124, 92, 255, 0.1);
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  color: $cyan;
+  font-size: 15px;
+}
+
+.about__value h4 {
+  font-family: $font-display;
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.about__value p {
+  color: $text-muted;
+  font-size: 14.5px;
+}
+
+// Stats
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: $line;
+  margin-top: clamp(56px, 8vw, 100px);
+  border: 1px solid $line;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat {
+  background: $bg-soft;
+  padding: clamp(26px, 3vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (max-width: $bp-sm) {
+    padding: 24px;
+  }
+}
+
+.stat__value {
+  font-family: $font-display;
+  font-size: clamp(34px, 4.4vw, 54px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat__label {
+  color: $text-dim;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}

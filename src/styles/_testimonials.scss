@@ -1,0 +1,85 @@
+@use 'variables' as *;
+
+// ============================================================
+// Témoignages
+// ============================================================
+
+.testimonials {
+  background: $bg;
+}
+
+.testimonials__slider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 32px);
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: clamp(26px, 3.4vw, 40px);
+  background: $surface;
+  border: 1px solid $line;
+  border-radius: 20px;
+  transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    border-color: rgba(124, 92, 255, 0.4);
+    transform: translateY(-6px);
+  }
+}
+
+.testimonial blockquote {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #d7d7e0;
+  flex: 1;
+
+  @media (max-width: $bp-lg) {
+    font-size: 17px;
+  }
+}
+
+.testimonial figcaption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid $line;
+}
+
+.testimonial__avatar {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: $font-display;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: $gradient;
+}
+
+.testimonial figcaption div {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial figcaption strong {
+  font-family: $font-display;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.testimonial figcaption span:not(.testimonial__avatar) {
+  font-size: 13px;
+  color: $text-dim;
+  margin-top: 2px;
+}

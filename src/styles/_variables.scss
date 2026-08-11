@@ -1,0 +1,39 @@
+// ============================================================
+// MODULIS — Design System
+// ============================================================
+
+// Palette
+$bg: #06060b;
+$bg-soft: #0a0a12;
+$surface: #10101a;
+$surface-2: #15151f;
+$line: rgba(255, 255, 255, 0.08);
+$line-strong: rgba(255, 255, 255, 0.16);
+
+$text: #f4f4f7;
+$text-muted: #9b9ba8;
+$text-dim: #6b6b78;
+
+$violet: #7c5cff;
+$cyan: #22d3ee;
+$gradient: linear-gradient(135deg, $violet 0%, $cyan 100%);
+
+// Typographie
+$font-display: 'Space Grotesk', 'Inter', sans-serif;
+$font-body: 'Inter', system-ui, sans-serif;
+$font-mono: 'JetBrains Mono', monospace;
+
+// Layout
+$container: 1240px;
+$gutter: clamp(20px, 4vw, 48px);
+
+// Breakpoints
+$bp-sm: 640px;
+$bp-md: 900px;
+$bp-lg: 1180px;
+
+// Z-index
+$z-cursor: 10000;
+$z-preloader: 9999;
+$z-nav: 1000;
+$z-menu: 950;
