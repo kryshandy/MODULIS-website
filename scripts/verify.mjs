@@ -1,0 +1,164 @@
+import { chromium } from 'playwright-core'
+
+const BASE = process.env.BASE_URL || 'http://localhost:4173/'
+const EXE = 'C:/Program Files/Google/Chrome/Application/chrome.exe'
+
+const browser = await chromium.launch({ executablePath: EXE, headless: true })
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 } })
+
+const errors = []
+page.on('pageerror', (e) => errors.push(`PAGEERROR: ${e.message}`))
+page.on('console', (m) => {
+  if (m.type() === 'error') errors.push(`CONSOLE: ${m.text()}`)
+})
+
+const results = []
+const check = (name, ok, detail = '') => {
+  results.push({ name, ok, detail })
+  console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail ? '  — ' + detail : ''}`)
+}
+
+await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 })
+
+// 1. Fonts
+await page.evaluate(() => document.fonts.ready)
+const fonts = await page.evaluate(() => {
+  const loaded = [...document.fonts].map((f) => `${f.family}:${f.status}`)
+  return loaded
+})
+check('fonts', fonts.length > 0 && fonts.every((f) => f.endsWith('loaded')), fonts.join(', '))
+
+// 2. Preloader hides
+await page.waitForTimeout(4200)
+const preloaderGone = await page.evaluate(() => {
+  const p = document.querySelector('.preloader')
+  return p === null || p.classList.contains('is-done')
+})
+check('preloader', preloaderGone)
+
+// 3. Hero intro applied (lines translated in)
+const heroLines = await page.evaluate(() => {
+  const inner = document.querySelector('.hero__line-inner')
+  return inner ? getComputedStyle(inner).transform : 'none'
+})
+check('hero lines animées', heroLines !== 'none' || heroLines === 'matrix(1, 0, 0, 1, 0, 0)', heroLines)
+
+// 4. All sections present
+const sectionIds = ['hero', 'services', 'about', 'process', 'work', 'testimonials', 'contact']
+for (const id of sectionIds) {
+  const exists = await page.evaluate((i) => !!document.getElementById(i), id)
+  check(`section #${id}`, exists)
+}
+
+// 5. No horizontal overflow (wide set)
+const widths = [390, 768, 1024, 1440, 1920]
+for (const w of widths) {
+  await page.setViewportSize({ width: w, height: 900 })
+  await page.waitForTimeout(300)
+  const ow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  check(`overflow @${w}px`, ow <= 0, `overflowX=${ow}px`)
+}
+
+// 6. Clipped content check (elements exceeding viewport width)
+//    — ignore les éléments décoratifs contenus dans un parent overflow:hidden
+await page.setViewportSize({ width: 390, height: 844 })
+await page.waitForTimeout(500)
+const clipped = await page.evaluate(() => {
+  const hasHiddenParent = (el) => {
+    let p = el.parentElement
+    while (p) {
+      if (getComputedStyle(p).overflowX === 'hidden' || getComputedStyle(p).overflow === 'hidden') return true
+      p = p.parentElement
+    }
+    return false
+  }
+  const bad = []
+  document.querySelectorAll('main *').forEach((el) => {
+    const r = el.getBoundingClientRect()
+    if (r.width > 0 && (r.right > window.innerWidth + 2 || r.left < -2) && !hasHiddenParent(el)) {
+      const tag = el.tagName.toLowerCase()
+      const cls = el.className ? `.${String(el.className).split(' ')[0]}` : ''
+      bad.push(`${tag}${cls}`)
+    }
+  })
+  return [...new Set(bad)].slice(0, 15)
+})
+check('aucun élement clippé @390', clipped.length === 0, clipped.join(', '))
+
+// 7. Mobile menu
+const burger = await page.$('.nav__burger')
+await burger.click()
+await page.waitForTimeout(600)
+const menuOpen = await page.evaluate(() => document.querySelector('.mobile-menu').classList.contains('is-open'))
+check('menu mobile ouvert', menuOpen)
+await page.evaluate(() => document.querySelector('.nav__burger').click())
+await page.waitForTimeout(500)
+
+// 8. Counters animate
+await page.evaluate(() => document.querySelector('.stats')?.scrollIntoView({ block: 'center' }))
+await page.waitForTimeout(2600)
+const counterVal = await page.evaluate(() => document.querySelector('.stat__value').textContent)
+check('compteurs', /120/.test(counterVal), `"${counterVal}"`)
+
+// 9. Reveals applied (vrai scroll wheel pour déclencher les ScrollTriggers)
+const totalHeight = await page.evaluate(() => document.body.scrollHeight)
+let y = 0
+while (y < totalHeight) {
+  await page.mouse.wheel(0, 500)
+  y += 500
+  await page.waitForTimeout(180)
+}
+await page.mouse.wheel(0, 500)
+await page.waitForTimeout(1500)
+const revealsApplied = await page.evaluate(() => {
+  const els = document.querySelectorAll('.reveal')
+  let hidden = 0
+  els.forEach((el) => {
+    if (getComputedStyle(el).opacity < 0.5) hidden++
+  })
+  return { total: els.length, hidden }
+})
+check('reveals appliqués', revealsApplied.hidden === 0, JSON.stringify(revealsApplied))
+
+// 10. Form validation
+await page.evaluate(() => document.querySelector('.contact')?.scrollIntoView())
+await page.waitForTimeout(800)
+const submitBtn = await page.$('.contact__form button[type="submit"]')
+await submitBtn.click()
+await page.waitForTimeout(400)
+const invalidShown = await page.evaluate(() => document.querySelectorAll('.field.is-invalid').length)
+const noteText = await page.evaluate(() => document.querySelector('.contact__form-note').textContent)
+check('validation formulaire', invalidShown >= 3 && noteText.length > 0, `${invalidShown} champs invalides — "${noteText}"`)
+
+// 11. Anchor smooth scroll to services
+await page.evaluate(() => document.querySelector('.nav__link[href="#services"]').click())
+await page.waitForTimeout(2200)
+const scrolled = await page.evaluate(() => {
+  const s = document.querySelector('#services')
+  const r = s.getBoundingClientRect()
+  return Math.abs(r.top) < 250
+})
+check('scroll ancré', scrolled)
+
+// 12. Cursor hidden on touch device (émulation tactile réelle)
+import { devices } from 'playwright-core'
+const ctx = await browser.newContext({
+  ...devices['iPhone 13']
+})
+const mobilePage = await ctx.newPage()
+mobilePage.on('pageerror', (e) => errors.push(`MOBILE PAGEERROR: ${e.message}`))
+await mobilePage.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 })
+await mobilePage.waitForTimeout(3500)
+const cursorDisplay = await mobilePage.evaluate(() => {
+  const c = document.querySelector('.cursor')
+  return c ? getComputedStyle(c).display : 'absent'
+})
+check('curseur désactivé mobile tactile', cursorDisplay === 'none' || cursorDisplay === 'absent', cursorDisplay)
+const touchOverflow = await mobilePage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+check('overflow @390 tactile', touchOverflow <= 0, `overflowX=${touchOverflow}px`)
+await ctx.close()
+
+console.log('\nJS ERRORS:', errors.length ? '\n' + errors.join('\n') : 'none')
+
+await browser.close()
+process.exit(errors.length ? 1 : 0)

@@ -10,8 +10,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^6.3.5",
-    "sass": "^1.89.2"
+    "playwright-core": "^1.62.1",
+    "sass": "^1.89.2",
+    "vite": "^6.3.5"
   },
   "dependencies": {
     "gsap": "^3.13.0",

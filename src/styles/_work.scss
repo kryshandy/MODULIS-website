@@ -124,6 +124,37 @@
   z-index: 2;
 }
 
+.work__arrow {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: $gradient;
+  color: #fff;
+  z-index: 2;
+  transform: translateY(12px) scale(0.8);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .work__card:hover & {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    display: none;
+  }
+}
+
 .work__info {
   display: flex;
   flex-direction: column;

@@ -60,8 +60,18 @@
 // Curseur personnalisé (desktop uniquement)
 // ============================================================
 
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-cursor;
+  pointer-events: none;
+  display: none;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .cursor {
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
