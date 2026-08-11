@@ -146,6 +146,48 @@
   }
 }
 
+.field--hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.field--consent {
+  .field__check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  input[type='checkbox'] {
+    flex: none;
+    width: 19px;
+    height: 19px;
+    margin-top: 2px;
+    accent-color: var(--teal);
+  }
+
+  span {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-muted);
+
+    a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      &:hover {
+        color: var(--text);
+      }
+    }
+  }
+}
+
 .contact__form-note {
   font-size: 14px;
   color: var(--teal);
@@ -228,4 +270,8 @@
   .hero__status {
     animation-duration: 1.8s;
   }
+}
+
+.contact__booking {
+  margin-top: 16px;
 }

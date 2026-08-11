@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Immo — Étude de cas | MODULIS</title>
+  <meta name="description" content="Comment MODULIS a repensé la plateforme web de Nova Immo : UX, design, performance. Temps de chargement divisé par 4, +52% de leads qualifiés." />
+  <meta name="theme-color" content="#F7F4EF" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Nova Immo — Étude de cas | MODULIS" />
+  <meta property="og:description" content="UX, design et performance : chargement divisé par 4, +52% de leads qualifiés." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://modulis.com/case-nova.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script>
+    (function () {
+      document.documentElement.classList.add('js')
+      try {
+        var t = localStorage.getItem('modulis-theme')
+        if (!t) {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.dataset.theme = t
+        var m = document.querySelector('meta[name="theme-color"]')
+        if (m) m.content = t === 'dark' ? '#0B1217' : '#F7F4EF'
+      } catch (e) {}
+    })()
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <noscript>
+    <style>
+      .preloader { display: none; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .mobile-menu__link { opacity: 1; transform: none; }
+      .mobile-menu__foot { opacity: 1; transform: none; }
+    </style>
+  </noscript>
+</head>
+<body>
+
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__logo">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="19.5" cy="13" r="6.5" fill="#0F7C7C"/>
+          <path d="M12.5 51 C13.5 38 15 24 20 16.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M16 28 C22 33 27 37 32 41.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="44.5" cy="13" r="6.5" fill="#20C7C9"/>
+          <path d="M51.5 51 C50.5 38 49 24 44 16.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M48 28 C42 33 37 37 32 41.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="32" cy="41.5" r="3" fill="#FF6B57"/>
+        </svg>
+        MODULIS<span class="preloader__dot">.</span>
+      </span>
+      <div class="preloader__bar"><span class="preloader__bar-fill"></span></div>
+      <span class="preloader__count">0</span>
+    </div>
+  </div>
+
+  <div class="cursor" aria-hidden="true">
+    <span class="cursor__dot"></span>
+    <span class="cursor__ring"></span>
+    <span class="cursor__label"></span>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav" id="top">
+    <div class="nav__inner container">
+      <a href="index.html#top" class="nav__brand" aria-label="MODULIS — retour à l'accueil">
+        <svg class="nav__mark" viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+          <circle cx="19.5" cy="13" r="6.5" fill="#0F7C7C"/>
+          <path d="M12.5 51 C13.5 38 15 24 20 16.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M16 28 C22 33 27 37 32 41.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="44.5" cy="13" r="6.5" fill="#20C7C9"/>
+          <path d="M51.5 51 C50.5 38 49 24 44 16.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M48 28 C42 33 37 37 32 41.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <circle cx="32" cy="41.5" r="3" fill="#FF6B57"/>
+        </svg>
+        <span class="nav__name">MODULIS<span class="nav__dot">.</span></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html#services"><span class="nav__num">01</span>Services</a>
+        <a class="nav__link" href="index.html#about"><span class="nav__num">02</span>À propos</a>
+        <a class="nav__link" href="index.html#process"><span class="nav__num">03</span>Méthode</a>
+        <a class="nav__link" href="index.html#work"><span class="nav__num">04</span>Réalisations</a>
+        <a class="nav__link" href="index.html#contact"><span class="nav__num">05</span>Contact</a>
+      </nav>
+
+      <a href="index.html#contact" class="btn btn--warm nav__cta" data-magnetic>Démarrer un projet</a>
+
+      <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Basculer entre thème clair et sombre" title="Changer de thème">
+        <span class="theme-toggle__track">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span class="theme-toggle__knob" aria-hidden="true"></span>
+        </span>
+      </button>
+
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <span class="mobile-menu__word" aria-hidden="true">MODULIS</span>
+    <nav class="mobile-menu__links">
+      <a href="index.html#services" class="mobile-menu__link"><span>01</span>Services</a>
+      <a href="index.html#about" class="mobile-menu__link"><span>02</span>À propos</a>
+      <a href="index.html#process" class="mobile-menu__link"><span>03</span>Méthode</a>
+      <a href="index.html#work" class="mobile-menu__link"><span>04</span>Réalisations</a>
+      <a href="index.html#contact" class="mobile-menu__link"><span>05</span>Contact</a>
+    </nav>
+    <div class="mobile-menu__foot">
+      <a class="mobile-menu__cta btn btn--primary" href="index.html#contact" data-magnetic>Démarrer un projet</a>
+      <p class="mobile-menu__mail"><a href="mailto:hello@modulis.com">hello@modulis.com</a></p>
+    </div>
+  </div>
+
+  <main>
+
+    <section class="case-hero" id="top">
+      <div class="case-hero__glow" aria-hidden="true"></div>
+      <div class="container">
+        <a class="case-hero__back reveal" href="index.html#work"><span>←</span> Retour aux réalisations</a>
+        <p class="section__tag reveal"><span>Étude de cas</span> — Web</p>
+        <h1 class="case-hero__title" data-split>Nova Immo : un site qui <em>vend</em>, enfin.</h1>
+        <div class="case-hero__meta reveal">
+          <div><span>Client</span><strong>Nova Immo</strong></div>
+          <div><span>Secteur</span><strong>Immobilier</strong></div>
+          <div><span>Prestations</span><strong>UX/UI · Dev · SEO</strong></div>
+          <div><span>Durée</span><strong>8 semaines</strong></div>
+        </div>
+        <div class="case-hero__visual reveal" data-tilt="5">
+          <div class="case-hero__visual-inner" style="--hue: 190">
+            <span class="work__monogram">N</span>
+            <div class="work__orbs"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-stats" aria-label="Résultats clés">
+      <div class="container">
+        <div class="stats">
+          <div class="stat">
+            <span class="stat__value" data-count="4" data-suffix="×">0</span>
+            <span class="stat__label">Plus rapide au chargement</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" data-count="52" data-suffix="%">0</span>
+            <span class="stat__label">De leads qualifiés</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" data-count="31" data-suffix="%">0</span>
+            <span class="stat__label">De temps passé sur le site</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-block">
+      <div class="container">
+        <div class="case-block__grid">
+          <div class="reveal">
+            <p class="case-block__label">Le défi</p>
+            <h2 class="case-block__lead">Un site de 2016 qui coûtait des clients chaque jour.</h2>
+          </div>
+          <div class="reveal">
+            <p class="case-block__text">
+              Neuf secondes de chargement, une mise en page illisible sur
+              mobile, zéro formulaire de contact sur les annonces : le
+              site de Nova Immo faisait fuir exactement les acheteurs que
+              l'agence cherchait à attirer. Pire encore, il était
+              invisible sur Google — la concurrence captait la demande.
+            </p>
+            <p class="case-block__text">
+              L'objectif était clair : refondre complètement l'expérience,
+              faire entrer la performance dans le vert, et transformer
+              chaque visite en prise de contact qualifiée.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-block" style="background: var(--bg-soft); border-block: 1px solid var(--line);">
+      <div class="container">
+        <div class="case-block__grid">
+          <div class="reveal">
+            <p class="case-block__label">Notre réponse</p>
+            <h2 class="case-block__lead">Une plateforme pensée pour l'acte d'achat, du clic au contact.</h2>
+          </div>
+          <ul class="case-block__list reveal">
+            <li>
+              <div>
+                <strong>Audit UX &amp; cartographie des parcours</strong>
+                <p>Analyse des parcours d'achat réels et identification des points de friction.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Design system &amp; maquettes UI</strong>
+                <p>Une interface claire et élégante, déclinée sur toutes les pages clés.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Développement haute performance</strong>
+                <p>Architecture moderne, Core Web Vitals verts, chargement sous 2 secondes.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Espace client connecté au CRM</strong>
+                <p>Prise de rendez-vous, alertes nouvelles annonces, suivi de dossier automatisé.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>SEO technique &amp; contenu</strong>
+                <p>Structure, maillage et contenus optimisés pour capter la demande locale.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-block">
+      <div class="container">
+        <div class="case-block__grid">
+          <div class="reveal">
+            <p class="case-block__label">Les résultats</p>
+            <h2 class="case-block__lead">Le site est devenu le premier commercial de l'agence.</h2>
+          </div>
+          <div class="reveal">
+            <div class="case-kpis">
+              <div class="case-kpi">
+                <span class="case-kpi__value">×4</span>
+                <span class="case-kpi__label">Vitesse de chargement</span>
+              </div>
+              <div class="case-kpi">
+                <span class="case-kpi__value">+52%</span>
+                <span class="case-kpi__label">Leads qualifiés</span>
+              </div>
+              <div class="case-kpi">
+                <span class="case-kpi__value">+31%</span>
+                <span class="case-kpi__label">Temps sur le site</span>
+              </div>
+            </div>
+            <p class="case-block__text">
+              Trois mois après le lancement, le taux de contact a doublé
+              et les annonces remontent dans les premières positions
+              locales. L'espace client est devenu l'outil quotidien des
+              commerciaux — et un argument de différenciation face aux
+              agences concurrentes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-quote">
+      <div class="container">
+        <blockquote class="reveal">
+          « Un site magnifique, rapide, et surtout : des <span>leads qui arrivent</span>. MODULIS a répondu présent à chaque étape, avec une transparence totale sur les délais et les coûts. »
+        </blockquote>
+        <cite class="reveal">
+          <span class="testimonial__avatar" aria-hidden="true">AM</span>
+          <div>
+            <strong>Awa Mbaye</strong>
+            <span>Directrice marketing, Nova Immo</span>
+          </div>
+        </cite>
+      </div>
+    </section>
+
+    <section class="case-cta">
+      <div class="container">
+        <h2 class="reveal" data-split>Un projet dans la même veine ? <em>Racontons-le.</em></h2>
+        <p class="reveal">Votre marque mérite la même exigence. Parlons-en sous 24h, sans engagement.</p>
+        <a href="index.html#contact" class="btn btn--warm btn--lg reveal" data-magnetic>
+          Démarrer votre projet
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__giant" aria-hidden="true">
+      <div class="footer__giant-track" data-marquee="34">
+        <span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i>
+        <span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="footer__top">
+        <a href="index.html#top" class="footer__brand" aria-label="MODULIS — retour à l'accueil">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="19.5" cy="13" r="6.5" fill="#0F7C7C"/>
+            <path d="M12.5 51 C13.5 38 15 24 20 16.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M16 28 C22 33 27 37 32 41.5" stroke="#0F7C7C" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="44.5" cy="13" r="6.5" fill="#20C7C9"/>
+            <path d="M51.5 51 C50.5 38 49 24 44 16.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M48 28 C42 33 37 37 32 41.5" stroke="#20C7C9" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <circle cx="32" cy="41.5" r="3" fill="#FF6B57"/>
+          </svg>
+          MODULIS<span class="nav__dot">.</span>
+        </a>
+        <a href="index.html#top" class="footer__top-link">Retour en haut <span>↑</span></a>
+      </div>
+      <div class="footer__mid">
+        <p class="footer__claim">
+          Stratégie, design &amp; technologie —<br />
+          façonnés ensemble, avec exigence.
+        </p>
+        <nav class="footer__nav" aria-label="Navigation pied de page">
+          <a href="index.html#services">Services</a>
+          <a href="index.html#about">À propos</a>
+          <a href="index.html#process">Méthode</a>
+          <a href="index.html#work">Réalisations</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>© <span class="footer__year"></span> MODULIS. Tous droits réservés.</p>
+        <p class="footer__made">Fait avec exigence — <a href="mailto:hello@modulis.com">hello@modulis.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="quickbar" aria-label="Actions rapides">
+    <a class="quickbar__item" href="tel:+33600000000">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <span>Appeler</span>
+    </a>
+    <a class="quickbar__item" href="mailto:hello@modulis.com">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Écrire</span>
+    </a>
+    <a class="quickbar__item quickbar__item--cta" href="https://calendly.com/modulis/decouverte" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 2v4M16 2v4M3 9h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13l2.5 2.5L18 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>RDV 20 min</span>
+    </a>
+  </nav>
+
+  <script type="module" src="/src/case-main.js"></script>
+</body>
+</html>

@@ -44,7 +44,7 @@ const heroLines = await page.evaluate(() => {
 check('hero lines animées', heroLines !== 'none' || heroLines === 'matrix(1, 0, 0, 1, 0, 0)', heroLines)
 
 // 4. All sections present
-const sectionIds = ['hero', 'services', 'about', 'process', 'work', 'testimonials', 'contact']
+const sectionIds = ['hero', 'services', 'about', 'process', 'work', 'testimonials', 'contact', 'logos', 'faq']
 for (const id of sectionIds) {
   const exists = await page.evaluate((i) => !!document.getElementById(i), id)
   check(`section #${id}`, exists)
@@ -200,6 +200,71 @@ const lightState = await page.evaluate(() => ({
   bodyBg: getComputedStyle(document.body).backgroundColor
 }))
 check('retour thème clair', lightState.theme === 'light' && lightState.bodyBg === 'rgb(247, 244, 239)', lightState.bodyBg)
+
+// 13e. Mur de logos clients
+const logosCount = await page.evaluate(() => document.querySelectorAll('.logos__group span').length)
+check('mur de logos clients', logosCount >= 16, `${logosCount} wordmarks`)
+
+// 13f. Preuve sociale dans le hero
+const heroTrust = await page.evaluate(() => {
+  const t = document.querySelector('.hero__trust')
+  return !!t && t.textContent.includes('5,0 / 5') && t.textContent.includes('120+')
+})
+check('preuve sociale hero', heroTrust)
+
+// 13g. Schema.org JSON-LD
+const ldJson = await page.evaluate(
+  () => document.querySelectorAll('script[type="application/ld+json"]').length
+)
+check('schema.org JSON-LD', ldJson >= 2, `${ldJson} blocs`)
+
+// 13h. FAQ accordéon
+await page.evaluate(() => document.querySelector('#faq')?.scrollIntoView())
+await page.waitForTimeout(500)
+await page.evaluate(() => document.querySelector('.faq__item summary').click())
+await page.waitForTimeout(400)
+const faqOpen = await page.evaluate(() => document.querySelector('.faq__item').open)
+check('FAQ accordéon', faqOpen)
+
+// 13i. Formulaire : consentement RGPD + honeypot
+const formExtra = await page.evaluate(() => ({
+  consent: !!document.querySelector('#consent[required]'),
+  honeypot: !!document.querySelector('input[name="botcheck"]')
+}))
+check('RGPD + honeypot', formExtra.consent && formExtra.honeypot, JSON.stringify(formExtra))
+
+// 13j. Barre d'actions rapides (mobile uniquement)
+await page.setViewportSize({ width: 390, height: 844 })
+await page.waitForTimeout(400)
+const quickbarMobile = await page.evaluate(() => {
+  const q = document.querySelector('.quickbar')
+  return q ? getComputedStyle(q).display : 'absent'
+})
+check('quickbar visible @390', quickbarMobile === 'flex', quickbarMobile)
+await page.setViewportSize({ width: 1440, height: 900 })
+await page.waitForTimeout(400)
+const quickbarDesktop = await page.evaluate(
+  () => getComputedStyle(document.querySelector('.quickbar')).display
+)
+check('quickbar masquée desktop', quickbarDesktop === 'none', quickbarDesktop)
+
+// 13k. Cartes réalisations -> études de cas
+const workLinks = await page.evaluate(() =>
+  [...document.querySelectorAll('.work__link')].map((a) => a.getAttribute('href'))
+)
+check('liens études de cas', workLinks.length === 4 && workLinks.every((h) => h.startsWith('case-')), workLinks.join(', '))
+
+// 13l. Pages études de cas (multi-page)
+for (const slug of ['case-kavala', 'case-nova', 'case-orbis', 'case-pulse']) {
+  await page.goto(`${BASE}${slug}.html`, { waitUntil: 'domcontentloaded', timeout: 30000 })
+  await page.waitForTimeout(3200)
+  const ok = await page.evaluate(() => {
+    const hero = document.querySelector('.case-hero')
+    return !!hero && hero.textContent.includes('Étude de cas') && !!document.querySelector('.case-kpis')
+  })
+  check(`page ${slug}.html`, ok)
+}
+await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 30000 })
 
 // 12. Cursor hidden on touch device (émulation tactile réelle)
 import { devices } from 'playwright-core'

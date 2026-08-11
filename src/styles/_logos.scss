@@ -1,0 +1,68 @@
+@use 'variables' as *;
+
+// ============================================================
+// Mur de logos clients
+// ============================================================
+
+.logos {
+  padding-block: clamp(40px, 5vw, 64px);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.logos__label {
+  font-family: $font-mono;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.logos__marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.logos__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+
+  // Fallback sans JS : l'animation CSS prend le relais
+  html:not(.js) & {
+    animation: marquee 60s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:not(.js) & {
+      animation: none;
+    }
+  }
+}
+
+.logos__group {
+  display: flex;
+  align-items: center;
+  gap: clamp(48px, 7vw, 96px);
+  padding-inline: clamp(24px, 3.5vw, 48px);
+
+  span {
+    font-family: $font-display;
+    font-size: clamp(16px, 1.9vw, 21px);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    white-space: nowrap;
+    transition: color 0.35s ease;
+    cursor: default;
+
+    &:hover {
+      color: var(--teal);
+    }
+  }
+}

@@ -270,6 +270,40 @@
   }
 }
 
+// Preuve sociale du hero
+.hero__trust {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: clamp(26px, 4vh, 40px);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+
+    strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+  }
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+.hero__trust-stars {
+  flex: none;
+  color: var(--coral);
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
 // Badge rotatif
 .hero__badge {
   position: absolute;

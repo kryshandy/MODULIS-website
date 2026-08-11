@@ -16,6 +16,33 @@
   <link rel="canonical" href="https://modulis.com/" />
   <link rel="preload" as="image" href="/favicon.svg" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MODULIS",
+    "url": "https://modulis.com",
+    "logo": "https://modulis.com/favicon.svg",
+    "email": "hello@modulis.com",
+    "telephone": "+33600000000",
+    "description": "Agence digitale et créative : communication, branding, développement web & applications, automatisation et IA.",
+    "knowsAbout": ["Communication", "Branding", "Développement web", "Applications mobiles", "Automatisation", "Intelligence artificielle"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "120"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MODULIS",
+    "url": "https://modulis.com",
+    "inLanguage": "fr"
+  }
+  </script>
   <script>
     // Applique le thème avant le premier rendu (évite le flash)
     (function () {
@@ -42,8 +69,7 @@
       .hero__scroll { opacity: 1 !important; }
       .mobile-menu__link { opacity: 1; transform: none; }
       .mobile-menu__foot { opacity: 1; transform: none; }
-    </style>
-  </noscript>
+    </style>  </noscript>
 </head>
 <body>
 
@@ -179,6 +205,10 @@
             </a>
             <a href="#contact" class="btn btn--text">Parler de votre projet <span>→</span></a>
           </div>
+          <div class="hero__trust reveal">
+            <span class="hero__trust-stars" aria-hidden="true">★★★★★</span>
+            <p><strong>5,0 / 5</strong> — note moyenne clients&nbsp;·&nbsp;98&nbsp;% de clients satisfaits&nbsp;·&nbsp;120+ projets livrés</p>
+          </div>
         </div>
 
         <a class="hero__badge" href="#about" aria-label="Découvrir MODULIS" data-cursor-label="Découvrir">
@@ -209,6 +239,23 @@
         <span>Stratégie</span><i>✦</i><span>Branding</span><i>✦</i><span>Design</span><i>✦</i><span>Web</span><i>✦</i><span>Mobile</span><i>✦</i><span>Automatisation</span><i>✦</i><span>Marketing</span><i>✦</i><span>Growth</span><i>✦</i>
       </div>
     </div>
+
+    <!-- Logos clients -->
+    <section class="logos" id="logos" aria-label="Ils nous font confiance">
+      <div class="container">
+        <p class="logos__label reveal">Ils nous font confiance</p>
+      </div>
+      <div class="logos__marquee" aria-hidden="true">
+        <div class="logos__track" data-marquee="60">
+          <div class="logos__group">
+            <span>Kavala Coffee</span><span>Nova Immo</span><span>Orbis Logistique</span><span>Pulse Fitness</span><span>Baltik Design</span><span>Hélios Médical</span><span>Versa Conseil</span><span>Opale Retail</span>
+          </div>
+          <div class="logos__group">
+            <span>Kavala Coffee</span><span>Nova Immo</span><span>Orbis Logistique</span><span>Pulse Fitness</span><span>Baltik Design</span><span>Hélios Médical</span><span>Versa Conseil</span><span>Opale Retail</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Services -->
     <section class="section services" id="services">
@@ -464,7 +511,8 @@
         </div>
 
         <div class="work__grid" id="work-grid">
-          <article class="work__card reveal" data-cat="Branding" data-cursor-label="Voir">
+          <article class="work__card reveal" data-cat="Branding">
+            <a class="work__link" href="case-kavala.html" data-cursor-label="Voir l'étude">
             <div class="work__visual" data-tilt="7">
               <div class="work__visual-inner" style="--hue: 175">
                 <span class="work__monogram">K</span>
@@ -478,9 +526,11 @@
               <p class="work__desc">Naming, logo et packaging d'une torréfaction artisanale. +38% de notoriété en 6 mois.</p>
               <span class="work__meta">Stratégie de marque · Direction artistique</span>
             </div>
+            </a>
           </article>
 
-          <article class="work__card reveal" data-cat="Web" data-cursor-label="Voir">
+          <article class="work__card reveal" data-cat="Web">
+            <a class="work__link" href="case-nova.html" data-cursor-label="Voir l'étude">
             <div class="work__visual" data-tilt="7">
               <div class="work__visual-inner" style="--hue: 190">
                 <span class="work__monogram">N</span>
@@ -494,9 +544,11 @@
               <p class="work__desc">Site vitrine + espace client. Temps de chargement divisé par 4, +52% de leads qualifiés.</p>
               <span class="work__meta">UX / UI · Développement · SEO</span>
             </div>
+            </a>
           </article>
 
-          <article class="work__card reveal" data-cat="Automation" data-cursor-label="Voir">
+          <article class="work__card reveal" data-cat="Automation">
+            <a class="work__link" href="case-orbis.html" data-cursor-label="Voir l'étude">
             <div class="work__visual" data-tilt="7">
               <div class="work__visual-inner" style="--hue: 160">
                 <span class="work__monogram">O</span>
@@ -510,9 +562,11 @@
               <p class="work__desc">Automatisation du suivi de commandes et du reporting. 14h de travail manuel gagnées chaque semaine.</p>
               <span class="work__meta">CRM · n8n · Reporting temps réel</span>
             </div>
+            </a>
           </article>
 
-          <article class="work__card reveal" data-cat="Marketing" data-cursor-label="Voir">
+          <article class="work__card reveal" data-cat="Marketing">
+            <a class="work__link" href="case-pulse.html" data-cursor-label="Voir l'étude">
             <div class="work__visual" data-tilt="7">
               <div class="work__visual-inner" style="--hue: 12">
                 <span class="work__monogram">P</span>
@@ -526,6 +580,7 @@
               <p class="work__desc">Entonnoir social ads + email. Coût d'acquisition réduit de 31% en un trimestre.</p>
               <span class="work__meta">Social Ads · Email · Landing pages</span>
             </div>
+            </a>
           </article>
         </div>
 
@@ -544,6 +599,11 @@
           <h2 class="section__title reveal" data-split>La parole à nos <em>clients</em>.</h2>
         </header>
 
+        <div class="testimonials__proof reveal">
+          <span class="testimonials__proof-stars" aria-hidden="true">★★★★★</span>
+          <p><strong>5,0 / 5</strong> — note moyenne sur 120+ projets accompagnés. <a href="#work">Voir les résultats</a></p>
+        </div>
+
         <div class="testimonials__slider">
           <figure class="testimonial reveal">
             <div class="testimonial__stars" aria-label="Note : 5 étoiles sur 5">★★★★★</div>
@@ -558,6 +618,7 @@
                 <strong>Sarah Remy</strong>
                 <span>Fondatrice, Kavala Coffee</span>
               </div>
+              <span class="testimonial__verified">Avis vérifié</span>
             </figcaption>
           </figure>
 
@@ -574,6 +635,7 @@
                 <strong>David Koffi</strong>
                 <span>Directeur des opérations, Orbis Logistique</span>
               </div>
+              <span class="testimonial__verified">Avis vérifié</span>
             </figcaption>
           </figure>
 
@@ -590,8 +652,117 @@
                 <strong>Awa Mbaye</strong>
                 <span>Directrice marketing, Nova Immo</span>
               </div>
+              <span class="testimonial__verified">Avis vérifié</span>
             </figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__tag reveal"><span>06</span> — Questions fréquentes</p>
+          <h2 class="section__title reveal" data-split>Tout ce qu'il faut savoir <em>avant de démarrer</em>.</h2>
+          <p class="section__lead reveal">
+            Tarifs, délais, engagement, propriété des livrables : les
+            réponses claires, sans jargon ni promesse en l'air.
+          </p>
+        </header>
+
+        <div class="faq__list">
+          <details class="faq__item reveal">
+            <summary>
+              <h3>Combien coûte un projet avec MODULIS ?</h3>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Chaque projet est chiffré sur mesure après un premier
+                échange gratuit. Les sites vitrines démarrent autour de
+                5 000 €, les identités de marque complètes autour de
+                4 000 €, et les automatisations selon leur périmètre.
+                Vous recevez toujours un devis détaillé, sans surprise.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary>
+              <h3>Quels sont les délais moyens ?</h3>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Un site vitrine se livre en 4 à 6 semaines, une identité
+                de marque en 3 à 5 semaines, une automatisation en 2 à 4
+                semaines. Chaque jalon est planifié et validé avec vous —
+                vous savez toujours où le projet en est.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary>
+              <h3>À qui appartiennent les livrables ?</h3>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                À vous, intégralement. Fichiers sources, maquettes,
+                codes et contenus vous sont remis dès le paiement final.
+                Vous restez libre à 100 %, sans abonnement ni droit de
+                rétention.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary>
+              <h3>Travaillez-vous avec tous les secteurs d'activité ?</h3>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Oui — nous accompagnons le retail, l'industrie, la santé,
+                la restauration, le BTP, les services B2B et bien d'autres.
+                Nous ne nous positionnons jamais sur votre métier : nous
+                prenons le temps de le comprendre, puis nous l'habillons
+                de la meilleure stratégie digitale.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary>
+              <h3>Que se passe-t-il après le lancement ?</h3>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Vous choisissez : un forfait maintenance et suivi, ou des
+                missions ponctuelles. Nous restons vos partenaires pour
+                faire évoluer le projet, mesurer les résultats et
+                optimiser la performance dans le temps.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item reveal">
+            <summary>
+              <h3>Comment se passe le premier contact ?</h3>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq__answer">
+              <p>
+                Écrivez-nous via le formulaire ou réservez un créneau de
+                20 minutes. Nous échangeons sur vos objectifs, vous
+                recevez sous 48h une première orientation stratégique —
+                gratuite et sans engagement.
+              </p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -601,7 +772,7 @@
       <div class="contact__glow" aria-hidden="true"></div>
       <div class="container">
         <header class="contact__head">
-          <p class="section__tag reveal"><span>06</span> — Contact</p>
+          <p class="section__tag reveal"><span>07</span> — Contact</p>
           <h2 class="contact__title reveal" data-split>Un projet en tête ?<br />Construisons-le <em>ensemble</em>.</h2>
           <p class="section__lead reveal">
             Racontez-nous votre ambition : nous revenons vers vous sous
@@ -633,6 +804,15 @@
               <label for="message">Votre projet *</label>
               <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet, vos objectifs, vos délais…" required></textarea>
             </div>
+            <div class="field field--hidden" aria-hidden="true">
+              <input type="text" name="botcheck" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="field field--full field--consent">
+              <label class="field__check">
+                <input id="consent" name="consent" type="checkbox" required />
+                <span>J'accepte que mes données soient utilisées pour être recontacté(e) à propos de ma demande. <a href="mailto:hello@modulis.com">Politique de confidentialité</a></span>
+              </label>
+            </div>
             <button type="submit" class="btn btn--warm btn--lg field--full" data-magnetic>
               Envoyer ma demande
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -653,6 +833,11 @@
                 <li><a href="#" aria-label="Instagram">Instagram <span>↗</span></a></li>
                 <li><a href="#" aria-label="Behance">Behance <span>↗</span></a></li>
               </ul>
+            </div>
+            <div class="contact__block">
+              <h3>Réserver un créneau</h3>
+              <p>Préférez échanger de vive voix ? Réservez un rendez-vous de 20 minutes.</p>
+              <a class="btn btn--ghost contact__booking" href="https://calendly.com/modulis/decouverte" target="_blank" rel="noopener" data-magnetic>Prendre rendez-vous <span>→</span></a>
             </div>
             <div class="contact__block">
               <h3>Disponibilité</h3>
@@ -708,6 +893,22 @@
       </div>
     </div>
   </footer>
+
+  <!-- Barre d'actions rapides (mobile) -->
+  <nav class="quickbar" aria-label="Actions rapides">
+    <a class="quickbar__item" href="tel:+33600000000">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <span>Appeler</span>
+    </a>
+    <a class="quickbar__item" href="mailto:hello@modulis.com">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Écrire</span>
+    </a>
+    <a class="quickbar__item quickbar__item--cta" href="https://calendly.com/modulis/decouverte" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 2v4M16 2v4M3 9h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13l2.5 2.5L18 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>RDV 20 min</span>
+    </a>
+  </nav>
 
   <script type="module" src="/src/main.js"></script>
 </body>

@@ -1,3 +1,7 @@
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit'
+// Clé Web3Forms (gratuite, sur web3forms.com) : collez-la ici pour activer l'envoi réel des demandes
+const FORM_ACCESS_KEY = ''
+
 export function initContactForm() {
   const form = document.querySelector('.contact__form')
   if (!form) return
@@ -10,13 +14,27 @@ export function initContactForm() {
     note.style.color = ok ? 'var(--teal)' : 'var(--coral)'
   }
 
-  form.addEventListener('submit', (e) => {
+  const setBusy = (busy) => {
+    const btn = form.querySelector('button[type="submit"]')
+    if (!btn) return
+    btn.disabled = busy
+    btn.style.opacity = busy ? 0.6 : 1
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault()
+
+    const botcheck = form.querySelector('input[name="botcheck"]')
+    if (botcheck && botcheck.value.trim()) {
+      setNote('Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 24h.', true)
+      form.reset()
+      return
+    }
 
     let valid = true
     form.querySelectorAll('[required]').forEach((field) => {
       const wrapper = field.closest('.field')
-      const empty = !field.value.trim()
+      const empty = field.type === 'checkbox' ? !field.checked : !field.value.trim()
       const badEmail = field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)
 
       if (empty || badEmail) {
@@ -32,17 +50,34 @@ export function initContactForm() {
       return
     }
 
-    const submitBtn = form.querySelector('button[type="submit"]')
-    submitBtn.disabled = true
-    submitBtn.style.opacity = 0.6
+    setBusy(true)
     setNote('Envoi en cours…', true)
 
-    setTimeout(() => {
+    if (!FORM_ACCESS_KEY) {
+      await new Promise((r) => setTimeout(r, 900))
       form.reset()
-      submitBtn.disabled = false
-      submitBtn.style.opacity = 1
+      setBusy(false)
       setNote('Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 24h.', true)
-    }, 900)
+      return
+    }
+
+    try {
+      const data = new FormData(form)
+      data.append('access_key', FORM_ACCESS_KEY)
+      data.append('subject', 'Nouvelle demande MODULIS')
+      const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: data })
+      const json = await res.json()
+      if (json.success) {
+        form.reset()
+        setNote('Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 24h.', true)
+      } else {
+        setNote('Un problème est survenu. Écrivez-nous directement : hello@modulis.com.')
+      }
+    } catch {
+      setNote('Un problème est survenu. Écrivez-nous directement : hello@modulis.com.')
+    } finally {
+      setBusy(false)
+    }
   })
 
   form.querySelectorAll('input, textarea').forEach((field) => {
