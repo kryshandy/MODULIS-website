@@ -6,7 +6,7 @@ Site web vitrine professionnel de l'agence digitale **MODULIS** : communication 
 
 - **Vite 6** — bundler de développement
 - **SCSS** — design system maison (variables, mixins, layout responsive)
-- **GSAP + ScrollTrigger** — animations premium (intro hero, reveals au scroll, compteurs)
+- **GSAP + ScrollTrigger** — animations premium (intro hero, reveals, compteurs, timeline, spotlight)
 - **Lenis** — smooth scrolling
 - 100% front-end : aucun backend, aucune base de données
 
@@ -25,14 +25,19 @@ npm run preview    # prévisualisation du build
 ├── index.html              # Structure sémantique complète (single-page)
 ├── public/
 │   └── favicon.svg         # Logo MODULIS
+├── scripts/
+│   ├── verify.mjs          # Suite de tests e2e (Playwright + Chrome local)
+│   └── screenshot.mjs      # Captures des sections
 └── src/
     ├── main.js             # Point d'entrée JS
     ├── js/
     │   ├── smooth.js       # Lenis + coordination GSAP ScrollTrigger
-    │   ├── preloader.js    # Chargement d'entrée
-    │   ├── cursor.js       # Curseur personnalisé (desktop)
-    │   ├── nav.js          # Navigation + menu mobile
-    │   ├── animations.js   # Intro hero, reveals, compteurs, parallax
+    │   ├── preloader.js    # Chargement d'entrée + compteur 0→100
+    │   ├── cursor.js       # Curseur personnalisé (desktop uniquement)
+    │   ├── nav.js          # Navigation + menu mobile + ancres smooth
+    │   ├── animations.js   # Intro hero, reveals, compteurs, parallax, timeline, spotlight
+    │   ├── modules.js      # Grille modulaire signature (le "M" de MODULIS)
+    │   ├── work.js         # Filtres du portfolio
     │   └── contact.js      # Validation du formulaire
     └── styles/
         ├── main.scss       # Point d'entrée CSS
@@ -41,14 +46,22 @@ npm run preview    # prévisualisation du build
 
 ## Sections
 
-1. **Hero** — intro typographique animée, grille de fond, halos dégradés
+1. **Hero** — intro typographique animée, grille de fond, halos dégradés, spotlight interactif au curseur, badge rotatif, chips d'expertises flottants
 2. **Marquee** — bandeau défilant des expertises
-3. **Services** — 4 offres (Communication, Branding, Web/App, Automatisation)
-4. **À propos** — positionnement studio + valeurs + statistiques animées
-5. **Méthode** — processus en 4 étapes
-6. **Réalisations** — portfolio avec visuels abstraits générés en CSS
-7. **Témoignages** — preuve sociale
+3. **Services** — 4 offres (Communication, Branding, Web/App, Automatisation) avec numéros filigrane au survol
+4. **À propos** — grille modulaire signature : 36 cellules forment le "M" de MODULIS en cascade animée
+5. **Méthode** — timeline verticale avec ligne dégradée dessinée au scroll
+6. **Réalisations** — portfolio filtrable (Tous / Branding / Web / Marketing / Automatisation), hover cinématique
+7. **Témoignages** — notes 5 étoiles, citations décoratives
 8. **Contact** — formulaire validé côté client + coordonnées
+9. **Footer** — marquee géant "MODULIS" en typographie XXL
+
+## Design system
+
+- Palette : noir profond `#06060B`, dégradé signature violet `#7C5CFF` → cyan `#22D3EE`
+- Typographie : Space Grotesk (titres), Inter (texte), JetBrains Mono (labels)
+- Texture grain cinématique globale, barre de progression du scroll
+- Curseur personnalisé avec état "Voir" sur les projets (mix-blend difference)
 
 ## Accessibilité & performance
 
@@ -56,4 +69,6 @@ npm run preview    # prévisualisation du build
 - Fallback `<noscript>` (contenu toujours visible sans JS)
 - Navigation clavier + focus visibles
 - Sémantique ARIA sur les composants interactifs
-- Build minifié : ~53 kB JS gzippé, ~6 kB CSS gzippé
+- Curseur personnalisé désactivé sur écrans tactiles
+- Build minifié : ~54 kB JS gzippé, ~8 kB CSS gzippé
+- Responsive validé sur 8 largeurs (375 → 1920px) + émulation tactile iPhone
