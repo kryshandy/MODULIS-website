@@ -39,7 +39,9 @@ export function initHeroIntro() {
 export function initScrollReveals() {
   if (prefersReduced()) return
 
-  const items = gsap.utils.toArray('.reveal').filter((item) => !item.closest('.hero'))
+  const items = gsap.utils.toArray('.reveal').filter(
+    (item) => !item.closest('.hero') && !item.hasAttribute('data-split')
+  )
 
   items.forEach((item) => {
     gsap.fromTo(

@@ -24,14 +24,15 @@
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  will-change: transform;
 }
 
 .hero__grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba($graphite, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba($graphite, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(var(--graphite-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--graphite-rgb), 0.05) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 20%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 20%, transparent 75%);
@@ -48,7 +49,7 @@
     height: 640px;
     top: -220px;
     right: -140px;
-    background: radial-gradient(circle, rgba($teal, 0.3), transparent 65%);
+    background: radial-gradient(circle, rgba(var(--teal-rgb), 0.3), transparent 65%);
   }
 
   &--2 {
@@ -56,7 +57,7 @@
     height: 560px;
     bottom: -260px;
     left: -160px;
-    background: radial-gradient(circle, rgba($turquoise, 0.22), transparent 65%);
+    background: radial-gradient(circle, rgba(var(--turquoise-rgb), 0.22), transparent 65%);
   }
 }
 
@@ -68,7 +69,7 @@
   left: 50%;
   margin: -340px 0 0 -340px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba($teal, 0.1), transparent 60%);
+  background: radial-gradient(circle, rgba(var(--teal-rgb), 0.1), transparent 60%);
   filter: blur(30px);
   pointer-events: none;
   opacity: 0;
@@ -97,13 +98,14 @@
   font-size: 11.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: $text-muted;
-  background: rgba(#fff, 0.72);
-  border: 1px solid rgba($graphite, 0.1);
+  color: var(--text-muted);
+  background: var(--chip-bg);
+  border: 1px solid rgba(var(--graphite-rgb), 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 100px;
   padding: 12px 22px;
+  box-shadow: 0 8px 24px -12px rgba(var(--graphite-rgb), 0.12);
   animation: chip-drift 9s ease-in-out infinite alternate;
 
   &--1 {
@@ -149,6 +151,7 @@
 .hero__inner {
   position: relative;
   z-index: 2;
+  will-change: transform, opacity;
 }
 
 .hero__eyebrow {
@@ -159,7 +162,7 @@
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: $text-muted;
+  color: var(--text-muted);
   margin-bottom: clamp(28px, 5vh, 48px);
 }
 
@@ -169,19 +172,19 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: $turquoise;
-  box-shadow: 0 0 0 0 rgba($turquoise, 0.6);
+  background: var(--turquoise);
+  box-shadow: 0 0 0 0 rgba(var(--turquoise-rgb), 0.6);
   animation: pulse-dot 2.4s ease-out infinite;
 
   @keyframes pulse-dot {
     0% {
-      box-shadow: 0 0 0 0 rgba($turquoise, 0.55);
+      box-shadow: 0 0 0 0 rgba(var(--turquoise-rgb), 0.55);
     }
     70% {
-      box-shadow: 0 0 0 9px rgba($turquoise, 0);
+      box-shadow: 0 0 0 9px rgba(var(--turquoise-rgb), 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba($turquoise, 0);
+      box-shadow: 0 0 0 0 rgba(var(--turquoise-rgb), 0);
     }
   }
 }
@@ -211,7 +214,11 @@
   transform: translateY(110%);
 
   &--accent {
-    background: $gradient;
+    font-family: $font-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.08em;
+    background: var(--gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -234,7 +241,7 @@
 
 .hero__desc {
   max-width: 460px;
-  color: $text-muted;
+  color: var(--text-muted);
   font-size: 17px;
   line-height: 1.75;
 
@@ -273,8 +280,8 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  border: 1px solid $line-strong;
-  background: rgba(#fff, 0.6);
+  border: 1px solid var(--line-strong);
+  background: var(--badge-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   opacity: 0;
@@ -285,7 +292,7 @@
   }
 
   &:hover {
-    border-color: rgba($teal, 0.6);
+    border-color: rgba(var(--teal-rgb), 0.6);
     transform: scale(1.06);
   }
 
@@ -302,7 +309,7 @@
     font-size: 11.5px;
     font-weight: 500;
     letter-spacing: 0.22em;
-    fill: $text-muted;
+    fill: var(--text-muted);
     text-transform: uppercase;
   }
 
@@ -313,7 +320,7 @@
 
 .hero__badge-arrow {
   font-size: 26px;
-  color: $teal;
+  color: var(--teal);
 }
 
 @keyframes badge-spin {
@@ -336,7 +343,7 @@
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  color: $text-dim;
+  color: var(--text-dim);
   font-family: $font-mono;
   font-size: 10px;
   letter-spacing: 0.3em;
@@ -357,14 +364,14 @@
 .hero__scroll-line {
   width: 1px;
   height: 64px;
-  background: $line-strong;
+  background: var(--line-strong);
   overflow: hidden;
 
   span {
     display: block;
     width: 100%;
     height: 50%;
-    background: $turquoise;
+    background: var(--turquoise);
     animation: scroll-hint 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
   }
 }

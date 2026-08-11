@@ -14,10 +14,10 @@
   border-bottom: 1px solid transparent;
 
   &.is-scrolled {
-    background: rgba($bg, 0.82);
+    background: rgba(var(--bg-rgb), 0.82);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-bottom-color: $line;
+    border-bottom-color: var(--line);
   }
 }
 
@@ -27,12 +27,25 @@
   justify-content: space-between;
   gap: 24px;
   padding-block: 20px;
+  transition: padding 0.4s ease;
+
+  .nav.is-scrolled & {
+    padding-block: 12px;
+  }
 }
 
 .nav__brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+
+  .nav__mark {
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover .nav__mark {
+    transform: rotate(-8deg) scale(1.06);
+  }
 }
 
 .nav__mark {
@@ -47,7 +60,7 @@
 }
 
 .nav__dot {
-  color: $coral;
+  color: var(--coral);
 }
 
 .nav__links {
@@ -66,7 +79,7 @@
   align-items: baseline;
   gap: 7px;
   font-size: 14px;
-  color: $text-muted;
+  color: var(--text-muted);
   transition: color 0.3s ease;
 
   &::after {
@@ -76,7 +89,7 @@
     bottom: -6px;
     width: 100%;
     height: 1px;
-    background: $gradient;
+    background: var(--gradient);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -84,7 +97,7 @@
 
   &:hover,
   &.is-active {
-    color: $text;
+    color: var(--text);
 
     &::after {
       transform: scaleX(1);
@@ -96,13 +109,75 @@
 .nav__num {
   font-family: $font-mono;
   font-size: 10px;
-  color: $teal;
+  color: var(--teal);
 }
 
 .nav__cta {
   @media (max-width: $bp-lg) {
     display: none;
   }
+}
+
+// ============================================================
+// Toggle de thème clair / sombre
+// ============================================================
+
+.theme-toggle {
+  position: relative;
+  flex: none;
+  width: 54px;
+  height: 30px;
+  border-radius: 100px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-2);
+  transition: background 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: rgba(var(--teal-rgb), 0.55);
+  }
+}
+
+.theme-toggle__track {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.theme-toggle__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+
+  [data-theme='dark'] & {
+    transform: translateX(24px);
+  }
+}
+
+.theme-toggle svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 13px;
+  height: 13px;
+  color: var(--text-dim);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle__sun {
+  left: 7px;
+}
+
+.theme-toggle__moon {
+  right: 7px;
 }
 
 // Burger (mobile)
@@ -114,15 +189,16 @@
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  border: 1px solid $line-strong;
+  border: 1px solid var(--line-strong);
   align-items: center;
   background: transparent;
+  transition: border-color 0.3s ease;
 
   span {
     display: block;
     width: 20px;
     height: 2px;
-    background: $text;
+    background: var(--text);
     border-radius: 2px;
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       opacity 0.25s ease;
@@ -152,7 +228,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 120px $gutter 48px;
-  background: rgba($bg, 0.97);
+  background: var(--menu-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   opacity: 0;
@@ -167,7 +243,7 @@
     top: -160px;
     right: -160px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba($teal, 0.16), transparent 65%);
+    background: radial-gradient(circle, rgba(var(--teal-rgb), 0.16), transparent 65%);
     filter: blur(60px);
     pointer-events: none;
   }
@@ -180,7 +256,7 @@
     bottom: -140px;
     left: -140px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba($turquoise, 0.12), transparent 65%);
+    background: radial-gradient(circle, rgba(var(--turquoise-rgb), 0.12), transparent 65%);
     filter: blur(60px);
     pointer-events: none;
   }
@@ -188,6 +264,35 @@
   &.is-open {
     opacity: 1;
     visibility: visible;
+  }
+}
+
+// Mot géant décoratif en arrière-plan du menu
+.mobile-menu__word {
+  position: absolute;
+  right: -14px;
+  bottom: -24px;
+  font-family: $font-display;
+  font-size: clamp(110px, 24vw, 240px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(var(--graphite-rgb), 0.08);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease 0.35s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+
+  .mobile-menu.is-open & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: $bp-sm) {
+    right: 8px;
   }
 }
 
@@ -207,7 +312,7 @@
   font-size: clamp(34px, 9vw, 52px);
   font-weight: 500;
   line-height: 1.15;
-  color: $text;
+  color: var(--text);
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
@@ -216,11 +321,11 @@
   span {
     font-family: $font-mono;
     font-size: 13px;
-    color: $teal;
+    color: var(--teal);
   }
 
   &:hover {
-    color: $text-muted;
+    color: var(--text-muted);
   }
 
   .mobile-menu.is-open & {
@@ -260,11 +365,11 @@
 
 .mobile-menu__mail {
   a {
-    color: $text-muted;
+    color: var(--text-muted);
     transition: color 0.3s ease;
 
     &:hover {
-      color: $teal;
+      color: var(--teal);
     }
   }
 }

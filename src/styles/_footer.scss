@@ -5,8 +5,8 @@
 // ============================================================
 
 .footer {
-  background: $bg;
-  border-top: 1px solid $line;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
   padding-block: 0 36px;
   overflow: hidden;
 }
@@ -16,7 +16,7 @@
   position: relative;
   overflow: hidden;
   padding-block: clamp(20px, 3vw, 36px);
-  border-bottom: 1px solid $line;
+  border-bottom: 1px solid var(--line);
   mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
@@ -26,7 +26,18 @@
   align-items: center;
   gap: 48px;
   width: max-content;
-  animation: giant-marquee 34s linear infinite;
+  will-change: transform;
+
+  // Fallback sans JS : l'animation CSS prend le relais
+  html:not(.js) & {
+    animation: giant-marquee 34s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:not(.js) & {
+      animation: none;
+    }
+  }
 
   span {
     font-family: $font-display;
@@ -36,19 +47,19 @@
     line-height: 1;
     white-space: nowrap;
     color: transparent;
-    -webkit-text-stroke: 1px rgba($graphite, 0.14);
+    -webkit-text-stroke: 1px rgba(var(--graphite-rgb), 0.14);
     transition: -webkit-text-stroke 0.4s ease, color 0.4s ease;
   }
 
   i {
     font-style: normal;
     font-size: clamp(20px, 3vw, 40px);
-    color: $teal;
+    color: var(--teal);
     opacity: 0.7;
   }
 
   &:hover span {
-    -webkit-text-stroke: 1px rgba($teal, 0.6);
+    -webkit-text-stroke: 1px rgba(var(--teal-rgb), 0.6);
   }
 }
 
@@ -58,19 +69,13 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .footer__giant-track {
-    animation: none;
-  }
-}
-
 .footer__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding-bottom: clamp(32px, 4vw, 56px);
-  border-bottom: 1px solid $line;
+  border-bottom: 1px solid var(--line);
 }
 
 .footer__brand {
@@ -85,6 +90,11 @@
   svg {
     width: 44px;
     height: 44px;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover svg {
+    transform: rotate(-8deg) scale(1.08);
   }
 }
 
@@ -93,19 +103,25 @@
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: $text-dim;
-  border: 1px solid $line;
+  color: var(--text-dim);
+  border: 1px solid var(--line);
   border-radius: 100px;
   padding: 12px 22px;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
   span {
-    color: $teal;
+    color: var(--teal);
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &:hover {
-    border-color: rgba($teal, 0.5);
-    color: $text;
+    border-color: rgba(var(--teal-rgb), 0.5);
+    color: var(--text);
+
+    span {
+      transform: translateY(-4px);
+    }
   }
 }
 
@@ -137,13 +153,13 @@
   gap: 10px 40px;
 
   a {
-    color: $text-muted;
+    color: var(--text-muted);
     font-size: 15px;
     padding-block: 4px;
     transition: color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      color: $teal;
+      color: var(--teal);
       transform: translateX(4px);
     }
   }
@@ -155,9 +171,9 @@
   justify-content: space-between;
   gap: 16px;
   padding-top: 28px;
-  border-top: 1px solid $line;
+  border-top: 1px solid var(--line);
   font-size: 13px;
-  color: $text-dim;
+  color: var(--text-dim);
 
   @media (max-width: $bp-sm) {
     flex-direction: column;
@@ -165,11 +181,11 @@
   }
 
   a {
-    color: $text-muted;
+    color: var(--text-muted);
     transition: color 0.3s ease;
 
     &:hover {
-      color: $teal;
+      color: var(--teal);
     }
   }
 }

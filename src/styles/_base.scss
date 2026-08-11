@@ -34,18 +34,32 @@
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: $text-dim;
+  color: var(--text-dim);
   margin-bottom: 22px;
 
   span {
-    color: $teal;
+    color: var(--teal);
   }
 
   &::after {
     content: '';
     width: 44px;
     height: 1px;
-    background: $line-strong;
+    background: var(--line-strong);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+  }
+
+  .is-in &::after,
+  html:not(.js) &::after {
+    transform: scaleX(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -57,8 +71,10 @@
   letter-spacing: -0.02em;
 
   em {
-    font-style: normal;
-    background: $gradient;
+    font-family: $font-serif;
+    font-style: italic;
+    font-weight: 400;
+    background: var(--gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -68,7 +84,7 @@
 .section__lead {
   margin-top: 24px;
   max-width: 560px;
-  color: $text-muted;
+  color: var(--text-muted);
   font-size: 17px;
   line-height: 1.7;
 }
@@ -78,6 +94,7 @@
 // ============================================================
 
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -105,58 +122,85 @@
   }
 }
 
+// Les éléments magnétiques sont pilotés par GSAP : on retire la transition
+// sur transform pour ne pas créer de latence dans le suivi de la souris.
+[data-magnetic] {
+  transition-property: background-color, color, border-color, box-shadow,
+    opacity, filter;
+}
+
+.btn--primary,
+.btn--warm {
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    left: 130%;
+  }
+}
+
 .btn--primary {
-  background: $gradient;
+  background: var(--gradient);
   color: #fff;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-    0 12px 32px -12px rgba($teal, 0.5);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset, var(--shadow-btn);
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14) inset,
-      0 16px 40px -12px rgba($turquoise, 0.55);
+      var(--shadow-btn-hover);
   }
 }
 
 // CTA chauds : corail, réservé aux moments de conversion
 .btn--warm {
-  background: $gradient-warm;
+  background: var(--gradient-warm);
   color: #fff;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-    0 12px 32px -12px rgba($coral, 0.55);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset, var(--shadow-btn);
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14) inset,
-      0 16px 44px -12px rgba($coral, 0.6);
+      var(--shadow-btn-warm-hover);
   }
 }
 
 .btn--ghost {
-  border: 1px solid $line-strong;
-  color: $text;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
   padding: 12px 24px;
   font-size: 14px;
   background: transparent;
 
   &:hover {
-    border-color: $teal;
-    background: rgba($teal, 0.06);
+    border-color: var(--teal);
+    background: rgba(var(--teal-rgb), 0.06);
   }
 }
 
 .btn--text {
   padding: 0;
-  color: $text-muted;
+  color: var(--text-muted);
   gap: 8px;
 
   span {
-    color: $teal;
+    color: var(--teal);
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &:hover {
-    color: $text;
+    color: var(--text);
 
     span {
       transform: translateX(6px);
@@ -167,6 +211,23 @@
 .btn--lg {
   padding: 18px 36px;
   font-size: 16px;
+}
+
+// ============================================================
+// Split de mots (piloté par GSAP)
+// ============================================================
+
+.tw {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-block: 0.08em;
+  margin-block: -0.08em;
+}
+
+.twi {
+  display: inline-block;
+  will-change: transform;
 }
 
 // ============================================================

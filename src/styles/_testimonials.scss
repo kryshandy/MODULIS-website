@@ -5,7 +5,7 @@
 // ============================================================
 
 .testimonials {
-  background: $bg;
+  background: var(--bg);
 }
 
 .testimonials__slider {
@@ -24,8 +24,8 @@
   flex-direction: column;
   gap: 22px;
   padding: clamp(26px, 3.4vw, 40px);
-  background: $surface;
-  border: 1px solid $line;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 20px;
   transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s ease;
@@ -38,19 +38,19 @@
     font-family: $font-display;
     font-size: 88px;
     line-height: 1;
-    color: rgba($teal, 0.12);
+    color: rgba(var(--teal-rgb), 0.12);
     pointer-events: none;
   }
 
   &:hover {
-    border-color: rgba($teal, 0.35);
+    border-color: rgba(var(--teal-rgb), 0.35);
     transform: translateY(-6px);
-    box-shadow: 0 20px 50px -24px rgba($teal, 0.28);
+    box-shadow: var(--shadow-soft);
   }
 }
 
 .testimonial__stars {
-  color: $coral;
+  color: var(--coral);
   font-size: 15px;
   letter-spacing: 4px;
   line-height: 1;
@@ -59,7 +59,7 @@
 .testimonial blockquote {
   font-size: 16px;
   line-height: 1.75;
-  color: $text;
+  color: var(--text);
   flex: 1;
 
   @media (max-width: $bp-lg) {
@@ -72,7 +72,7 @@
   align-items: center;
   gap: 14px;
   padding-top: 24px;
-  border-top: 1px solid $line;
+  border-top: 1px solid var(--line);
 }
 
 .testimonial__avatar {
@@ -86,7 +86,7 @@
   font-size: 14px;
   font-weight: 600;
   color: #fff;
-  background: $gradient;
+  background: var(--gradient);
 }
 
 .testimonial figcaption div {
@@ -102,6 +102,6 @@
 
 .testimonial figcaption span:not(.testimonial__avatar) {
   font-size: 13px;
-  color: $text-dim;
+  color: var(--text-dim);
   margin-top: 2px;
 }

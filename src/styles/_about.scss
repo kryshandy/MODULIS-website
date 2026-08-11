@@ -5,8 +5,8 @@
 // ============================================================
 
 .about {
-  background: $bg-soft;
-  border-block: 1px solid $line;
+  background: var(--bg-soft);
+  border-block: 1px solid var(--line);
 }
 
 .about__header {
@@ -48,16 +48,16 @@
 
   span {
     border-radius: 14px;
-    background: $surface;
-    border: 1px solid $line;
+    background: var(--surface);
+    border: 1px solid var(--line);
     opacity: 0;
     will-change: transform, opacity;
 
     &.is-m {
-      background: rgba($teal, 0.12);
-      border-color: rgba($teal, 0.4);
-      box-shadow: 0 0 18px rgba($teal, 0.14),
-        inset 0 0 12px rgba($teal, 0.06);
+      background: rgba(var(--teal-rgb), 0.12);
+      border-color: rgba(var(--teal-rgb), 0.4);
+      box-shadow: 0 0 18px rgba(var(--teal-rgb), 0.14),
+        inset 0 0 12px rgba(var(--teal-rgb), 0.06);
     }
 
     &.is-on {
@@ -74,12 +74,12 @@
   font-size: 12px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: $text-dim;
+  color: var(--text-dim);
   text-align: center;
   line-height: 2;
 
   span:last-child {
-    color: $text-muted;
+    color: var(--text-muted);
   }
 }
 
@@ -96,8 +96,10 @@
   font-weight: 400;
 
   em {
-    font-style: normal;
-    background: $gradient;
+    font-family: $font-serif;
+    font-style: italic;
+    font-weight: 400;
+    background: var(--gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -105,7 +107,7 @@
 }
 
 .about__text {
-  color: $text-muted;
+  color: var(--text-muted);
   line-height: 1.75;
   max-width: 60ch;
 }
@@ -116,7 +118,7 @@
   gap: 22px;
   margin-top: 18px;
   padding-top: 26px;
-  border-top: 1px solid $line;
+  border-top: 1px solid var(--line);
 }
 
 .about__value {
@@ -132,9 +134,9 @@
   display: grid;
   place-items: center;
   border-radius: 12px;
-  background: rgba($teal, 0.08);
-  border: 1px solid rgba($teal, 0.25);
-  color: $teal;
+  background: rgba(var(--teal-rgb), 0.08);
+  border: 1px solid rgba(var(--teal-rgb), 0.25);
+  color: var(--teal);
   font-size: 15px;
 }
 
@@ -146,7 +148,7 @@
 }
 
 .about__value p {
-  color: $text-muted;
+  color: var(--text-muted);
   font-size: 14.5px;
 }
 
@@ -155,9 +157,11 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: $line;
+  background: var(--line);
   margin-top: clamp(56px, 8vw, 100px);
-  border: 1px solid $line;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
 
   @media (max-width: $bp-md) {
     grid-template-columns: repeat(2, 1fr);
@@ -165,11 +169,16 @@
 }
 
 .stat {
-  background: $surface;
+  background: var(--surface);
   padding: clamp(26px, 3vw, 44px);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: background 0.35s ease;
+
+  &:hover {
+    background: var(--surface-2);
+  }
 
   @media (max-width: $bp-sm) {
     padding: 24px;
@@ -182,14 +191,14 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1;
-  background: $gradient;
+  background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .stat__label {
-  color: $text-dim;
+  color: var(--text-dim);
   font-size: 14px;
   letter-spacing: 0.02em;
 }

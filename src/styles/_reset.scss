@@ -15,6 +15,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--scrollbar-thumb) var(--bg);
 }
 
 html.lenis,
@@ -27,8 +28,8 @@ html.lenis body {
 }
 
 body {
-  background: $bg;
-  color: $text;
+  background: var(--bg);
+  color: var(--text);
   font-family: $font-body;
   font-size: 16px;
   line-height: 1.6;
@@ -67,12 +68,12 @@ button {
 }
 
 ::selection {
-  background: rgba($turquoise, 0.35);
-  color: $graphite;
+  background: var(--selection-bg);
+  color: var(--graphite);
 }
 
 :focus-visible {
-  outline: 2px solid $turquoise;
+  outline: 2px solid var(--turquoise);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -83,16 +84,16 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: $bg;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c8c2b8;
+  background: var(--scrollbar-thumb);
   border-radius: 8px;
-  border: 2px solid $bg;
+  border: 2px solid var(--bg);
 
   &:hover {
-    background: $teal;
+    background: var(--teal);
   }
 }
 

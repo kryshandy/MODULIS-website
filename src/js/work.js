@@ -1,4 +1,7 @@
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function initWorkFilters() {
   const buttons = gsap.utils.toArray('.work__filter-btn')
@@ -40,7 +43,8 @@ export function initWorkFilters() {
             duration: 0.5,
             stagger: 0.07,
             ease: 'power3.out',
-            clearProps: 'display'
+            clearProps: 'display',
+            onComplete: () => ScrollTrigger.refresh()
           }
         )
       }

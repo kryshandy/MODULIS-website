@@ -8,9 +8,9 @@
   position: relative;
   overflow: hidden;
   padding-block: 26px;
-  border-top: 1px solid $line;
-  border-bottom: 1px solid $line;
-  background: $bg-soft;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
 
   &::before,
   &::after {
@@ -25,12 +25,12 @@
 
   &::before {
     left: 0;
-    background: linear-gradient(90deg, $bg, transparent);
+    background: linear-gradient(90deg, var(--bg), transparent);
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(-90deg, $bg, transparent);
+    background: linear-gradient(-90deg, var(--bg), transparent);
   }
 }
 
@@ -39,11 +39,17 @@
   align-items: center;
   gap: 48px;
   width: max-content;
-  animation: marquee 30s linear infinite;
   will-change: transform;
 
-  &:hover {
-    animation-play-state: paused;
+  // Fallback sans JS : l'animation CSS prend le relais
+  html:not(.js) & {
+    animation: marquee 30s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:not(.js) & {
+      animation: none;
+    }
   }
 }
 
@@ -52,18 +58,18 @@
   font-size: clamp(18px, 2.4vw, 26px);
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: $text-muted;
+  color: var(--text-muted);
   white-space: nowrap;
   transition: color 0.3s ease;
 
   &:hover {
-    color: $text;
+    color: var(--text);
   }
 }
 
 .marquee__track > i {
   font-style: normal;
-  color: $teal;
+  color: var(--teal);
   font-size: 14px;
 }
 

@@ -1,46 +1,142 @@
 // ============================================================
-// MODULIS — Design System v2 (Charte graphique officielle)
-// Teal profond · Turquoise · Corail · Graphite · Ivoire
+// MODULIS — Design System v3 (Dual theme : clair + sombre)
+// Charte officielle : Teal · Turquoise · Corail · Graphite · Ivoire
 // ============================================================
 
-// Charte officielle
-$teal: #0f7c7c;        // confiance & stabilité — couleur primaire
-$turquoise: #20c7c9;   // accent dynamique — liens, éléments actifs
-$coral: #ff6b57;       // accent humain — parcimonie : points, CTA, détails
-$graphite: #1f2a30;    // texte principal & monochrome
-$ivoire: #f7f4ef;      // fond principal doux & premium
-
-// Dérivés
-$bg: $ivoire;
-$bg-soft: #f1ede5;
-$surface: #ffffff;
-$surface-2: #f5f1ea;
-$line: rgba($graphite, 0.08);
-$line-strong: rgba($graphite, 0.18);
-
-$text: $graphite;
-$text-muted: #5b6b74;
-$text-dim: #93a0a8;
-
-$gradient: linear-gradient(135deg, $teal 0%, $turquoise 100%);
-$gradient-warm: linear-gradient(135deg, $coral 0%, #ff8b6b 100%);
-
-// Typographie
+// --- Typographie ---
 $font-display: 'Space Grotesk', 'Inter', sans-serif;
 $font-body: 'Inter', system-ui, sans-serif;
+$font-serif: 'Instrument Serif', Georgia, serif;
 $font-mono: 'JetBrains Mono', monospace;
 
-// Layout
+// --- Layout ---
 $container: 1240px;
 $gutter: clamp(20px, 4vw, 48px);
 
-// Breakpoints
+// --- Breakpoints ---
 $bp-sm: 640px;
 $bp-md: 900px;
 $bp-lg: 1180px;
 
-// Z-index
+// --- Z-index ---
 $z-cursor: 10000;
 $z-preloader: 9999;
 $z-nav: 1000;
 $z-menu: 950;
+
+// ============================================================
+// Tokens CSS — Thème clair (défaut)
+// ============================================================
+
+:root {
+  color-scheme: light;
+
+  // Charte
+  --teal: #0f7c7c;
+  --teal-rgb: 15, 124, 124;
+  --turquoise: #20c7c9;
+  --turquoise-rgb: 32, 199, 201;
+  --coral: #ff6b57;
+  --coral-rgb: 255, 107, 87;
+  --graphite: #1f2a30;
+  --graphite-rgb: 31, 42, 48;
+  --ivoire: #f7f4ef;
+  --ivoire-rgb: 247, 244, 239;
+
+  // Surfaces
+  --bg: #f7f4ef;
+  --bg-rgb: 247, 244, 239;
+  --bg-soft: #f0ebe1;
+  --surface: #ffffff;
+  --surface-rgb: 255, 255, 255;
+  --surface-2: #f5f1ea;
+
+  // Lignes & texte
+  --line: rgba(31, 42, 48, 0.08);
+  --line-strong: rgba(31, 42, 48, 0.2);
+  --text: #1f2a30;
+  --text-muted: #5b6b74;
+  --text-dim: #93a0a8;
+
+  // Dégradés
+  --gradient: linear-gradient(135deg, #0f7c7c 0%, #20c7c9 100%);
+  --gradient-warm: linear-gradient(135deg, #ff6b57 0%, #ff8b6b 100%);
+
+  // Ombres
+  --shadow-btn: 0 12px 32px -12px rgba(15, 124, 124, 0.5);
+  --shadow-btn-hover: 0 16px 44px -14px rgba(32, 199, 201, 0.55);
+  --shadow-btn-warm-hover: 0 16px 44px -14px rgba(255, 107, 87, 0.55);
+  --shadow-card: 0 24px 60px -24px rgba(15, 124, 124, 0.3);
+  --shadow-soft: 0 20px 50px -24px rgba(15, 124, 124, 0.28);
+  --shadow-chip: 0 8px 24px -8px rgba(15, 124, 124, 0.55);
+
+  // Détails
+  --chip-bg: rgba(255, 255, 255, 0.72);
+  --badge-bg: rgba(255, 255, 255, 0.6);
+  --menu-bg: rgba(247, 244, 239, 0.97);
+  --selection-bg: rgba(32, 199, 201, 0.35);
+  --scrollbar-thumb: #c8c2b8;
+  --grain-blend: multiply;
+  --grain-opacity: 0.05;
+}
+
+// ============================================================
+// Tokens CSS — Thème sombre (charte sur fond océan noir)
+// ============================================================
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --teal: #17a6a6;
+  --teal-rgb: 23, 166, 166;
+  --turquoise: #3ad3d5;
+  --turquoise-rgb: 58, 211, 213;
+  --coral: #ff6b57;
+  --coral-rgb: 255, 107, 87;
+  --graphite: #edf2ef;
+  --graphite-rgb: 237, 242, 239;
+  --ivoire: #0b1217;
+  --ivoire-rgb: 11, 18, 23;
+
+  --bg: #0b1217;
+  --bg-rgb: 11, 18, 23;
+  --bg-soft: #0f181e;
+  --surface: #141f26;
+  --surface-rgb: 20, 31, 38;
+  --surface-2: #18242b;
+
+  --line: rgba(237, 242, 239, 0.08);
+  --line-strong: rgba(237, 242, 239, 0.2);
+  --text: #edf2ef;
+  --text-muted: #9fb0b8;
+  --text-dim: #647580;
+
+  --gradient: linear-gradient(135deg, #17a6a6 0%, #3ad3d5 100%);
+  --gradient-warm: linear-gradient(135deg, #ff6b57 0%, #ff8b6b 100%);
+
+  --shadow-btn: 0 14px 34px -14px rgba(0, 0, 0, 0.55);
+  --shadow-btn-hover: 0 18px 46px -16px rgba(0, 0, 0, 0.65);
+  --shadow-btn-warm-hover: 0 18px 46px -16px rgba(0, 0, 0, 0.65);
+  --shadow-card: 0 30px 70px -30px rgba(0, 0, 0, 0.65);
+  --shadow-soft: 0 24px 60px -28px rgba(0, 0, 0, 0.6);
+  --shadow-chip: 0 10px 26px -10px rgba(0, 0, 0, 0.6);
+
+  --chip-bg: rgba(20, 31, 38, 0.7);
+  --badge-bg: rgba(20, 31, 38, 0.62);
+  --menu-bg: rgba(11, 18, 23, 0.97);
+  --selection-bg: rgba(58, 211, 213, 0.4);
+  --scrollbar-thumb: #33434d;
+  --grain-blend: soft-light;
+  --grain-opacity: 0.07;
+}
+
+// Transition douce lors du changement de thème (classe ajoutée par JS)
+html.theme-switching,
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition-property: background-color, color, border-color, box-shadow,
+    fill, stroke, opacity, filter !important;
+  transition-duration: 0.45s !important;
+  transition-timing-function: ease !important;
+}

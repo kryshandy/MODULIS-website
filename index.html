@@ -16,9 +16,24 @@
   <link rel="canonical" href="https://modulis.com/" />
   <link rel="preload" as="image" href="/favicon.svg" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script>
+    // Applique le thème avant le premier rendu (évite le flash)
+    (function () {
+      document.documentElement.classList.add('js')
+      try {
+        var t = localStorage.getItem('modulis-theme')
+        if (!t) {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.dataset.theme = t
+        var m = document.querySelector('meta[name="theme-color"]')
+        if (m) m.content = t === 'dark' ? '#0B1217' : '#F7F4EF'
+      } catch (e) {}
+    })()
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <noscript>
     <style>
       .preloader { display: none; }
@@ -89,7 +104,15 @@
         <a class="nav__link" href="#contact"><span class="nav__num">05</span>Contact</a>
       </nav>
 
-      <a href="#contact" class="btn btn--warm nav__cta">Démarrer un projet</a>
+      <a href="#contact" class="btn btn--warm nav__cta" data-magnetic>Démarrer un projet</a>
+
+      <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Basculer entre thème clair et sombre" title="Changer de thème">
+        <span class="theme-toggle__track">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span class="theme-toggle__knob" aria-hidden="true"></span>
+        </span>
+      </button>
 
       <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span>
@@ -99,6 +122,7 @@
 
   <!-- Menu mobile -->
   <div class="mobile-menu" aria-hidden="true">
+    <span class="mobile-menu__word" aria-hidden="true">MODULIS</span>
     <nav class="mobile-menu__links">
       <a href="#services" class="mobile-menu__link"><span>01</span>Services</a>
       <a href="#about" class="mobile-menu__link"><span>02</span>À propos</a>
@@ -107,7 +131,7 @@
       <a href="#contact" class="mobile-menu__link"><span>05</span>Contact</a>
     </nav>
     <div class="mobile-menu__foot">
-      <a class="mobile-menu__cta btn btn--primary" href="#contact">Démarrer un projet</a>
+      <a class="mobile-menu__cta btn btn--primary" href="#contact" data-magnetic>Démarrer un projet</a>
       <p class="mobile-menu__mail"><a href="mailto:hello@modulis.com">hello@modulis.com</a></p>
     </div>
   </div>
@@ -149,7 +173,7 @@
             mesurables, élégantes et durables.
           </p>
           <div class="hero__actions reveal">
-            <a href="#work" class="btn btn--primary btn--lg">
+            <a href="#work" class="btn btn--primary btn--lg" data-magnetic>
               Découvrir nos réalisations
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
@@ -180,7 +204,7 @@
 
     <!-- Marquee -->
     <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
+      <div class="marquee__track" data-marquee="30">
         <span>Stratégie</span><i>✦</i><span>Branding</span><i>✦</i><span>Design</span><i>✦</i><span>Web</span><i>✦</i><span>Mobile</span><i>✦</i><span>Automatisation</span><i>✦</i><span>Marketing</span><i>✦</i><span>Growth</span><i>✦</i>
         <span>Stratégie</span><i>✦</i><span>Branding</span><i>✦</i><span>Design</span><i>✦</i><span>Web</span><i>✦</i><span>Mobile</span><i>✦</i><span>Automatisation</span><i>✦</i><span>Marketing</span><i>✦</i><span>Growth</span><i>✦</i>
       </div>
@@ -191,7 +215,7 @@
       <div class="container">
         <header class="section__head">
           <p class="section__tag reveal"><span>01</span> — Nos expertises</p>
-          <h2 class="section__title reveal">Des services pensés comme un <em>système</em>, pas comme des briques isolées.</h2>
+          <h2 class="section__title reveal" data-split>Des services pensés comme un <em>système</em>, pas comme des briques isolées.</h2>
           <p class="section__lead reveal">
             Chaque offre MODULIS s'intègre dans une stratégie globale :
             la communication nourrit la marque, la marque habille le produit,
@@ -276,12 +300,12 @@
       <div class="container">
         <header class="section__head about__header">
           <p class="section__tag reveal"><span>02</span> — À propos</p>
-          <h2 class="section__title reveal">Le studio qui <em>module</em> vos idées en succès.</h2>
+          <h2 class="section__title reveal" data-split>Le studio qui <em>module</em> vos idées en succès.</h2>
         </header>
 
         <div class="about__grid">
           <div class="about__body">
-            <p class="about__lead reveal">
+            <p class="about__lead reveal" data-split>
               MODULIS est né d'une conviction simple : les marques ne sont pas
               des coquilles vides, ce sont des <em>systèmes vivants</em>.
             </p>
@@ -352,7 +376,7 @@
       <div class="container">
         <header class="section__head">
           <p class="section__tag reveal"><span>03</span> — Notre méthode</p>
-          <h2 class="section__title reveal">Un processus éprouvé, de l'idée <em>au lancement</em>.</h2>
+          <h2 class="section__title reveal" data-split>Un processus éprouvé, de l'idée <em>au lancement</em>.</h2>
         </header>
 
         <div class="process__timeline">
@@ -424,7 +448,7 @@
       <div class="container">
         <header class="section__head">
           <p class="section__tag reveal"><span>04</span> — Réalisations</p>
-          <h2 class="section__title reveal">Des projets qui <em>parlent</em> d'eux-mêmes.</h2>
+          <h2 class="section__title reveal" data-split>Des projets qui <em>parlent</em> d'eux-mêmes.</h2>
           <p class="section__lead reveal">
             Un aperçu de la manière dont nous combinons stratégie,
             design et technologie pour des marques exigeantes.
@@ -441,7 +465,7 @@
 
         <div class="work__grid" id="work-grid">
           <article class="work__card reveal" data-cat="Branding" data-cursor-label="Voir">
-            <div class="work__visual">
+            <div class="work__visual" data-tilt="7">
               <div class="work__visual-inner" style="--hue: 175">
                 <span class="work__monogram">K</span>
                 <div class="work__orbs"><i></i><i></i><i></i></div>
@@ -457,7 +481,7 @@
           </article>
 
           <article class="work__card reveal" data-cat="Web" data-cursor-label="Voir">
-            <div class="work__visual">
+            <div class="work__visual" data-tilt="7">
               <div class="work__visual-inner" style="--hue: 190">
                 <span class="work__monogram">N</span>
                 <div class="work__orbs"><i></i><i></i><i></i></div>
@@ -473,7 +497,7 @@
           </article>
 
           <article class="work__card reveal" data-cat="Automation" data-cursor-label="Voir">
-            <div class="work__visual">
+            <div class="work__visual" data-tilt="7">
               <div class="work__visual-inner" style="--hue: 160">
                 <span class="work__monogram">O</span>
                 <div class="work__orbs"><i></i><i></i><i></i></div>
@@ -489,7 +513,7 @@
           </article>
 
           <article class="work__card reveal" data-cat="Marketing" data-cursor-label="Voir">
-            <div class="work__visual">
+            <div class="work__visual" data-tilt="7">
               <div class="work__visual-inner" style="--hue: 12">
                 <span class="work__monogram">P</span>
                 <div class="work__orbs"><i></i><i></i><i></i></div>
@@ -507,7 +531,7 @@
 
         <div class="work__cta reveal">
           <p>Envie d'un résultat dans la même veine ?</p>
-          <a href="#contact" class="btn btn--primary">Parlons de votre projet</a>
+          <a href="#contact" class="btn btn--primary" data-magnetic>Parlons de votre projet</a>
         </div>
       </div>
     </section>
@@ -517,7 +541,7 @@
       <div class="container">
         <header class="section__head">
           <p class="section__tag reveal"><span>05</span> — Ils nous font confiance</p>
-          <h2 class="section__title reveal">La parole à nos <em>clients</em>.</h2>
+          <h2 class="section__title reveal" data-split>La parole à nos <em>clients</em>.</h2>
         </header>
 
         <div class="testimonials__slider">
@@ -578,7 +602,7 @@
       <div class="container">
         <header class="contact__head">
           <p class="section__tag reveal"><span>06</span> — Contact</p>
-          <h2 class="contact__title reveal">Un projet en tête ?<br />Construisons-le <em>ensemble</em>.</h2>
+          <h2 class="contact__title reveal" data-split>Un projet en tête ?<br />Construisons-le <em>ensemble</em>.</h2>
           <p class="section__lead reveal">
             Racontez-nous votre ambition : nous revenons vers vous sous
             24h avec un premier échange, sans engagement.
@@ -609,7 +633,7 @@
               <label for="message">Votre projet *</label>
               <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet, vos objectifs, vos délais…" required></textarea>
             </div>
-            <button type="submit" class="btn btn--warm btn--lg field--full">
+            <button type="submit" class="btn btn--warm btn--lg field--full" data-magnetic>
               Envoyer ma demande
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -643,7 +667,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer__giant" aria-hidden="true">
-      <div class="footer__giant-track">
+      <div class="footer__giant-track" data-marquee="34">
         <span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i>
         <span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i><span>MODULIS</span><i>✦</i>
       </div>
