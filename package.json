@@ -1,0 +1,20 @@
+{
+  "name": "modulis-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MODULIS — Agence digitale : communication, branding, développement web & app, automatisation.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5",
+    "sass": "^1.89.2"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "lenis": "^1.3.5"
+  }
+}
