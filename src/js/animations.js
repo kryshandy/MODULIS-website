@@ -117,6 +117,35 @@ export function initScrollProgress() {
   update()
 }
 
+export function initProcessTimeline() {
+  if (prefersReduced()) return
+
+  const line = document.querySelector('.process__line span')
+  const steps = gsap.utils.toArray('.process__step')
+
+  if (!line || !steps.length) return
+
+  gsap.to(line, {
+    scaleY: 1,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.process__timeline',
+      start: 'top 70%',
+      end: 'bottom 60%',
+      scrub: 0.6
+    }
+  })
+
+  steps.forEach((step) => {
+    ScrollTrigger.create({
+      trigger: step,
+      start: 'top 70%',
+      onEnter: () => step.classList.add('is-in-view'),
+      once: true
+    })
+  })
+}
+
 export function initParallax() {
   if (prefersReduced()) return
 

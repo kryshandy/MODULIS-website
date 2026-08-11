@@ -265,12 +265,12 @@
     <!-- About -->
     <section class="section about" id="about">
       <div class="container">
-        <div class="about__grid">
-          <header class="section__head about__head">
-            <p class="section__tag reveal"><span>02</span> — À propos</p>
-            <h2 class="section__title reveal">Le studio qui <em>module</em> vos idées en succès.</h2>
-          </header>
+        <header class="section__head about__header">
+          <p class="section__tag reveal"><span>02</span> — À propos</p>
+          <h2 class="section__title reveal">Le studio qui <em>module</em> vos idées en succès.</h2>
+        </header>
 
+        <div class="about__grid">
           <div class="about__body">
             <p class="about__lead reveal">
               MODULIS est né d'une conviction simple : les marques ne sont pas
@@ -307,6 +307,14 @@
               </div>
             </div>
           </div>
+
+          <aside class="about__modules reveal" aria-hidden="true">
+            <div class="about__modules-grid" id="modules-grid"></div>
+            <div class="about__modules-meta">
+              <span class="about__modules-label">Un studio,</span>
+              <span class="about__modules-label">quatre modules.</span>
+            </div>
+          </aside>
         </div>
 
         <div class="stats reveal">
@@ -338,52 +346,67 @@
           <h2 class="section__title reveal">Un processus éprouvé, de l'idée <em>au lancement</em>.</h2>
         </header>
 
-        <ol class="process__list">
-          <li class="process__step reveal">
-            <div class="process__meta">
-              <span class="process__num">01</span>
-              <span class="process__duration">Sem. 1–2</span>
-            </div>
-            <h3 class="process__title">Diagnostic</h3>
-            <p class="process__desc">
-              Audit de votre marché, de vos concurrents et de vos audiences.
-              Nous identifions les leviers de croissance prioritaires.
-            </p>
-          </li>
-          <li class="process__step reveal">
-            <div class="process__meta">
-              <span class="process__num">02</span>
-              <span class="process__duration">Sem. 2–4</span>
-            </div>
-            <h3 class="process__title">Stratégie</h3>
-            <p class="process__desc">
-              Positionnement, message clé, feuille de route. Un plan clair,
-              priorisé et chiffré, validé avec vous avant tout lancement.
-            </p>
-          </li>
-          <li class="process__step reveal">
-            <div class="process__meta">
-              <span class="process__num">03</span>
-              <span class="process__duration">Sem. 4–10</span>
-            </div>
-            <h3 class="process__title">Création</h3>
-            <p class="process__desc">
-              Design, développement, automatisations. Des itérations
-              transparentes avec démo live à chaque jalon clé.
-            </p>
-          </li>
-          <li class="process__step reveal">
-            <div class="process__meta">
-              <span class="process__num">04</span>
-              <span class="process__duration">Sem. 10 →</span>
-            </div>
-            <h3 class="process__title">Croissance</h3>
-            <p class="process__desc">
-              Lancement, mesure, optimisation continue. Nous restons à vos
-              côtés pour que l'impact suive la promesse.
-            </p>
-          </li>
-        </ol>
+        <div class="process__timeline">
+          <div class="process__line" aria-hidden="true"><span></span></div>
+          <ol class="process__list">
+            <li class="process__step reveal">
+              <div class="process__marker" aria-hidden="true"></div>
+              <div class="process__meta">
+                <span class="process__num">01</span>
+                <span class="process__duration">Sem. 1–2</span>
+              </div>
+              <div class="process__content">
+                <h3 class="process__title">Diagnostic</h3>
+                <p class="process__desc">
+                  Audit de votre marché, de vos concurrents et de vos audiences.
+                  Nous identifions les leviers de croissance prioritaires.
+                </p>
+              </div>
+            </li>
+            <li class="process__step reveal">
+              <div class="process__marker" aria-hidden="true"></div>
+              <div class="process__meta">
+                <span class="process__num">02</span>
+                <span class="process__duration">Sem. 2–4</span>
+              </div>
+              <div class="process__content">
+                <h3 class="process__title">Stratégie</h3>
+                <p class="process__desc">
+                  Positionnement, message clé, feuille de route. Un plan clair,
+                  priorisé et chiffré, validé avec vous avant tout lancement.
+                </p>
+              </div>
+            </li>
+            <li class="process__step reveal">
+              <div class="process__marker" aria-hidden="true"></div>
+              <div class="process__meta">
+                <span class="process__num">03</span>
+                <span class="process__duration">Sem. 4–10</span>
+              </div>
+              <div class="process__content">
+                <h3 class="process__title">Création</h3>
+                <p class="process__desc">
+                  Design, développement, automatisations. Des itérations
+                  transparentes avec démo live à chaque jalon clé.
+                </p>
+              </div>
+            </li>
+            <li class="process__step reveal">
+              <div class="process__marker" aria-hidden="true"></div>
+              <div class="process__meta">
+                <span class="process__num">04</span>
+                <span class="process__duration">Sem. 10 →</span>
+              </div>
+              <div class="process__content">
+                <h3 class="process__title">Croissance</h3>
+                <p class="process__desc">
+                  Lancement, mesure, optimisation continue. Nous restons à vos
+                  côtés pour que l'impact suive la promesse.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
