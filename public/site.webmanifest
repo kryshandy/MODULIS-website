@@ -1,0 +1,17 @@
+{
+  "name": "MODULIS Tech — Entreprise de Prestations de Services Technologiques",
+  "short_name": "Modulis Tech",
+  "description": "Modulis Tech est une entreprise de prestation de services technologiques, d'ingénierie logicielle et de transformation digitale.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F4EF",
+  "theme_color": "#0F7C7C",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

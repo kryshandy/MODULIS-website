@@ -3,44 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MODULIS — Agence Digitale & Créative</title>
-  <meta name="description" content="MODULIS conçoit des expériences digitales sur mesure : communication, branding, développement web & app, automatisation. Construisons votre succès digital." />
+  <title>MODULIS Tech — Entreprise de Prestations de Services Technologiques & Digitales</title>
+  <meta name="description" content="Modulis Tech est votre entreprise de prestation de services technologiques : développement web & mobile sur mesure, ingénierie logicielle, automatisation IA, cloud et branding. Propulsez votre entreprise." />
+  <meta name="keywords" content="Modulis, Modulis Tech, entreprise de prestation de services technologique, ESN, entreprise de services du numerique, ingénierie logicielle, transformation digitale, développement web, application mobile, automatisation IA, conseil informatique, agence tech, agence digitale" />
+  <meta name="author" content="MODULIS Tech" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#F7F4EF" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="MODULIS" />
-  <meta property="og:title" content="MODULIS — Agence Digitale & Créative" />
-  <meta property="og:description" content="Communication, branding, développement web & app, automatisation. Construisons votre succès digital." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/favicon.svg" />
-  <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://modulis.com/" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:site_name" content="Modulis Tech" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://modulis.com/" />
+  <meta property="og:title" content="MODULIS Tech — Entreprise de Prestations de Services Technologiques & Digitales" />
+  <meta property="og:description" content="Modulis Tech conçoit et déploie des solutions technologiques et digitales sur mesure : ingénierie logicielle, web & mobile, automatisation IA, cloud et branding." />
+  <meta property="og:image" content="https://modulis.com/favicon.svg" />
+  <meta property="og:image:alt" content="Modulis Tech - Prestations de services technologiques" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@modulistech" />
+  <meta name="twitter:creator" content="@modulistech" />
+  <meta name="twitter:title" content="MODULIS Tech — Services Technologiques & Transformation Digitale" />
+  <meta name="twitter:description" content="Entreprise de prestation de services technologiques : ingénierie logicielle, web & mobile, IA et automatisation." />
+  <meta name="twitter:image" content="https://modulis.com/favicon.svg" />
+
+  <!-- Geographic and Language Meta -->
+  <meta name="geo.region" content="FR" />
+  <meta name="geo.placename" content="Paris" />
+  <meta name="language" content="French" />
+
   <link rel="preload" as="image" href="/favicon.svg" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Structured Data JSON-LD (Schema.org) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "MODULIS",
-    "url": "https://modulis.com",
-    "logo": "https://modulis.com/favicon.svg",
-    "email": "hello@modulis.com",
-    "telephone": "+33600000000",
-    "description": "Agence digitale et créative : communication, branding, développement web & applications, automatisation et IA.",
-    "knowsAbout": ["Communication", "Branding", "Développement web", "Applications mobiles", "Automatisation", "Intelligence artificielle"],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "120"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "MODULIS",
-    "url": "https://modulis.com",
-    "inLanguage": "fr"
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService", "TechArticle"],
+        "@id": "https://modulis.com/#organization",
+        "name": "MODULIS Tech",
+        "alternateName": ["Modulis", "Modulis Tech", "Modulis Technologique", "Modulis Technologies", "MODULIS - Entreprise de prestation de services technologiques"],
+        "url": "https://modulis.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://modulis.com/favicon.svg"
+        },
+        "image": "https://modulis.com/favicon.svg",
+        "email": "hello@modulis.com",
+        "telephone": "+33600000000",
+        "priceRange": "$$$",
+        "description": "MODULIS Tech est une entreprise de prestation de services technologiques et digitales sur mesure. Spécialisée en ingénierie logicielle, transformation numérique, développement web & mobile, IA et automatisation.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "FR"
+        },
+        "knowsAbout": [
+          "Prestation de services technologiques",
+          "Entreprise de Services du Numérique (ESN)",
+          "Ingénierie logicielle",
+          "Transformation digitale",
+          "Développement web et mobile",
+          "Intelligence Artificielle & Automatisation",
+          "Branding & Identité visuelle",
+          "Cloud & DevOps"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "120",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services Technologiques Modulis Tech",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Communication & Growth Marketing Technologique",
+                "description": "Stratégie de croissance digitale, campagnes SEO / SEA et acquisition de clients."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Branding & Design de Marque Tech",
+                "description": "Naming, charte graphique, direction artistique et design systèmes."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Développement Web & Applications Mobiles Sur Mesure",
+                "description": "Création de plateformes sur mesure, sites vitrines, e-commerce, web apps et applications mobiles."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Automatisation & Intelligence Artificielle (IA)",
+                "description": "Workflows intelligents, intégrations CRM, agents IA et optimisation des opérations."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://modulis.com/#website",
+        "name": "MODULIS Tech",
+        "alternateName": ["Modulis", "Modulis Tech"],
+        "url": "https://modulis.com",
+        "inLanguage": "fr-FR",
+        "publisher": {
+          "@id": "https://modulis.com/#organization"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://modulis.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Combien coûte un projet avec Modulis Tech ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Chaque projet est chiffré sur mesure après un premier échange gratuit. Les sites vitrines démarrent autour de 5 000 €, les identités de marque complètes autour de 4 000 €, et les automatisations selon leur périmètre. Vous recevez toujours un devis détaillé, sans surprise."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels sont les délais moyens de réalisation ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un site vitrine se livre en 4 à 6 semaines, une identité de marque en 3 à 5 semaines, une automatisation en 2 à 4 semaines. Chaque jalon est planifié et validé avec vous."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "À qui appartiennent les livrables ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "À vous, intégralement. Fichiers sources, maquettes, codes et contenus vous sont remis dès le paiement final. Vous restez libre à 100 %, sans abonnement ni droit de rétention."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Travaillez-vous avec tous les secteurs d'activité ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui — nous accompagnons le retail, l'industrie, la santé, la restauration, le BTP, les services B2B et bien d'autres."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Que se passe-t-il après le lancement du projet ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vous choisissez : un forfait maintenance et suivi, ou des missions ponctuelles. Nous restons vos partenaires pour faire évoluer le projet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment se passe le premier contact avec Modulis Tech ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Écrivez-nous via le formulaire ou réservez un créneau de 20 minutes. Nous échangeons sur vos objectifs et vous recevez sous 48h une première orientation stratégique gratuite."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <script>
@@ -183,7 +326,7 @@
       <div class="hero__inner container">
         <p class="hero__eyebrow reveal">
           <span class="hero__status"></span>
-          Agence digitale · Communication · Branding · Développement
+          Modulis Tech · Entreprise de Prestations de Services Technologiques &amp; Digitales
         </p>
 
         <h1 class="hero__title">
@@ -194,9 +337,9 @@
 
         <div class="hero__bottom">
           <p class="hero__desc reveal">
-            De la stratégie de marque au développement d'applications,
-            MODULIS transforme vos ambitions en solutions digitales
-            mesurables, élégantes et durables.
+            <strong>MODULIS Tech</strong> est votre entreprise de prestation de services technologiques.
+            De la stratégie de marque au développement d'applications logicielles sur mesure,
+            nous transformons vos ambitions en solutions digitales mesurables, performantes et durables.
           </p>
           <div class="hero__actions reveal">
             <a href="#work" class="btn btn--primary btn--lg" data-magnetic>
@@ -353,13 +496,11 @@
         <div class="about__grid">
           <div class="about__body">
             <p class="about__lead reveal" data-split>
-              MODULIS est né d'une conviction simple : les marques ne sont pas
-              des coquilles vides, ce sont des <em>systèmes vivants</em>.
+              <strong>MODULIS Tech</strong> est une entreprise de prestation de services technologiques et digitales née d'une conviction simple : les marques et entreprises ont besoin de <em>systèmes technologiques vivants et intégrés</em>.
             </p>
             <p class="about__text reveal">
               Notre nom vient de « moduler » : ajuster, façonner, composer.
-              C'est exactement ce que nous faisons pour chaque client —
-              nous assemblons stratégie, design et technologie en un tout
+              En tant qu'entreprise de services technologiques (ESN / agence tech), nous assemblons stratégie, ingénierie logicielle, design et automatisation en un tout
               cohérent, à la mesure de vos ambitions. Un partenaire unique,
               une vision claire, des résultats mesurables.
             </p>

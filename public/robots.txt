@@ -1,0 +1,6 @@
+# Robots.txt pour Modulis Tech - Entreprise de prestation de services technologiques
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://modulis.com/sitemap.xml
