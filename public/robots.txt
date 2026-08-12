@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://modulis.com/sitemap.xml
+Sitemap: https://www.modulis.tech/sitemap.xml
