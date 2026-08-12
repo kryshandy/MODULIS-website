@@ -71,10 +71,10 @@ export function initContactForm() {
         form.reset()
         setNote('Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 24h.', true)
       } else {
-        setNote('Un problème est survenu. Écrivez-nous directement : hello@modulis.com.')
+        setNote('Un problème est survenu. Écrivez-nous directement : hello@modulis.tech.')
       }
     } catch {
-      setNote('Un problème est survenu. Écrivez-nous directement : hello@modulis.com.')
+      setNote('Un problème est survenu. Écrivez-nous directement : hello@modulis.tech.')
     } finally {
       setBusy(false)
     }
