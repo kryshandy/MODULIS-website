@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 const root = process.cwd()
 
 export default defineConfig({
-  base: './',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
