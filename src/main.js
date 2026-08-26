@@ -1,5 +1,6 @@
 import './styles/main.scss'
 
+import { initContentRenderer } from './js/content-renderer'
 import { initSmoothScroll } from './js/smooth'
 import { initPreloader } from './js/preloader'
 import { initCursor } from './js/cursor'
@@ -28,8 +29,10 @@ import { initContactForm } from './js/contact'
 import { initModulesGrid } from './js/modules'
 import { initWorkFilters } from './js/work'
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   document.querySelector('.footer__year').textContent = new Date().getFullYear()
+
+  await initContentRenderer()
 
   initPreloader()
   initCursor()

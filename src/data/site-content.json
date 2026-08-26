@@ -1,0 +1,380 @@
+{
+  "global": {
+    "brandName": "MODULIS",
+    "brandTagline": "Digital & Tech Studio",
+    "email": "hello@modulis.tech",
+    "phone": "+237 6 78 23 96 36",
+    "phoneClean": "+237678239636",
+    "bookingUrl": "https://calendly.com/modulis/decouverte",
+    "availability": "2 places libres ce trimestre",
+    "copyright": "Tous droits réservés.",
+    "footerClaim": "Stratégie, design & technologie — façonné ensemble, avec exigence.",
+    "socials": {
+      "linkedin": "https://linkedin.com",
+      "instagram": "https://instagram.com",
+      "behance": "https://behance.net"
+    }
+  },
+  "seo": {
+    "title": "MODULIS Tech — Entreprise de Prestations de Services Technologiques & Digitales",
+    "description": "MODULIS Tech vous accompagne de la stratégie de marque au développement d'applications logicielles sur mesure, automatisation et marketing digital."
+  },
+  "hero": {
+    "eyebrow": "Modulis Tech · Entreprise de Prestations de Services Technologiques & Digitales",
+    "titleLine1": "Nous façonnons",
+    "titleLine2": "des expériences",
+    "titleLineAccent": "digitales d'exception",
+    "description": "MODULIS Tech est votre entreprise de prestation de services technologiques. De la stratégie de marque au développement d'applications logicielles sur mesure, nous transformons vos ambitions en solutions digitales mesurables, performantes et durables.",
+    "ctaPrimary": "Découvrir nos réalisations",
+    "ctaSecondary": "Parler de votre projet",
+    "trustNote": "5,0 / 5 — note moyenne clients · 98 % de clients satisfaits · 120+ projets livrés",
+    "chips": [
+      "Branding",
+      "Web & Apps",
+      "Automation",
+      "Growth"
+    ]
+  },
+  "marqueeWords": [
+    "Stratégie",
+    "Branding",
+    "Design",
+    "Web",
+    "Mobile",
+    "Automatisation",
+    "Marketing",
+    "Growth"
+  ],
+  "logos": [
+    "Kavala Coffee",
+    "Nova Immo",
+    "Orbis Logistique",
+    "Pulse Fitness",
+    "Baltik Design",
+    "Hélios Médical",
+    "Versa Conseil",
+    "Opale Retail"
+  ],
+  "services": {
+    "tag": "01 — Nos expertises",
+    "title": "Des services pensés comme un <em>système</em>, pas comme des briques isolées.",
+    "lead": "Chaque offre MODULIS s'intègre dans une stratégie globale : la communication nourrit la marque, la marque habille le produit, le produit accélère la croissance.",
+    "items": [
+      {
+        "id": "01",
+        "title": "Communication\n& Marketing",
+        "desc": "Stratégies de contenu, campagnes publicitaires, réseaux sociaux, SEO & growth marketing. Nous construisons des récits qui engagent et des entonnoirs qui convertissent.",
+        "tags": [
+          "Stratégie 360°",
+          "Social Ads",
+          "SEO / SEA",
+          "Content",
+          "Email marketing"
+        ],
+        "link": "#contact",
+        "linkLabel": "Explorer l'offre"
+      },
+      {
+        "id": "02",
+        "title": "Branding &\nIdentité visuelle",
+        "desc": "Naming, logo, charte graphique, direction artistique et guidelines. Nous créons des identités mémorables qui installent votre marque dans la durée.",
+        "tags": [
+          "Naming",
+          "Logo & charte",
+          "Direction artistique",
+          "Packaging",
+          "Guidelines"
+        ],
+        "link": "#contact",
+        "linkLabel": "Explorer l'offre"
+      },
+      {
+        "id": "03",
+        "title": "Sites web\n& Applications",
+        "desc": "Design d'interface, développement front & back, applications mobiles et e-commerce. Des produits rapides, accessibles et pensés pour convertir.",
+        "tags": [
+          "UI / UX",
+          "Sites vitrines",
+          "Apps web & mobile",
+          "E-commerce",
+          "API & intégrations"
+        ],
+        "link": "#contact",
+        "linkLabel": "Explorer l'offre"
+      },
+      {
+        "id": "04",
+        "title": "Automatisation\n& IA",
+        "desc": "Workflows automatisés, intégrations CRM, assistants IA et optimisations de processus. Gagnez des heures chaque semaine et faites grandir vos opérations sans friction.",
+        "tags": [
+          "Workflows",
+          "CRM & intégrations",
+          "Assistants IA",
+          "Zapier / n8n",
+          "Reporting"
+        ],
+        "link": "#contact",
+        "linkLabel": "Explorer l'offre"
+      }
+    ]
+  },
+  "about": {
+    "tag": "02 — À propos",
+    "title": "Le studio qui <em>module</em> vos idées en succès.",
+    "lead": "<strong>MODULIS Tech</strong> est une entreprise de prestation de services technologiques et digitales née d'une conviction simple : les marques et entreprises ont besoin de <em>systèmes technologiques vivants et intégrés</em>.",
+    "text": "Notre nom vient de « moduler » : ajuster, façonner, composer. En tant qu'entreprise de services technologiques (ESN / agence tech), nous assemblons stratégie, ingénierie logicielle, design et automatisation en un tout cohérent, à la mesure de vos ambitions. Un partenaire unique, une vision claire, des résultats mesurables.",
+    "values": [
+      {
+        "title": "Clarté avant tout",
+        "desc": "Des livrables lisibles, des jalons précis, zéro jargon."
+      },
+      {
+        "title": "Impact mesurable",
+        "desc": "Chaque décision se justifie par un indicateur, pas une intuition."
+      },
+      {
+        "title": "Exigence artisanale",
+        "desc": "Le soin du détail, du premier wireframe au dernier pixel."
+      }
+    ],
+    "stats": [
+      {
+        "count": 120,
+        "suffix": "+",
+        "label": "Projets livrés"
+      },
+      {
+        "count": 98,
+        "suffix": "%",
+        "label": "Clients satisfaits"
+      },
+      {
+        "count": 40,
+        "suffix": "+",
+        "label": "Marques accompagnées"
+      },
+      {
+        "count": 7,
+        "suffix": " ans",
+        "label": "D'expérience cumulée"
+      }
+    ]
+  },
+  "process": {
+    "tag": "03 — Notre méthode",
+    "title": "Un processus éprouvé, de l'idée <em>au lancement</em>.",
+    "steps": [
+      {
+        "num": "01",
+        "duration": "Sem. 1–2",
+        "title": "Diagnostic",
+        "desc": "Audit de votre marché, de vos concurrents et de vos audiences. Nous identifions les leviers de croissance prioritaires."
+      },
+      {
+        "num": "02",
+        "duration": "Sem. 2–4",
+        "title": "Stratégie",
+        "desc": "Positionnement, message clé, feuille de route. Un plan clair, priorisé et chiffré, validé avec vous avant tout lancement."
+      },
+      {
+        "num": "03",
+        "duration": "Sem. 4–10",
+        "title": "Création",
+        "desc": "Design, développement, automatisations. Des itérations transparentes avec démo live à chaque jalon clé."
+      },
+      {
+        "num": "04",
+        "duration": "Sem. 10 →",
+        "title": "Croissance",
+        "desc": "Lancement, mesure, optimisation continue. Nous restons à vos côtés pour que l'impact suive la promesse."
+      }
+    ]
+  },
+  "work": {
+    "tag": "04 — Réalisations",
+    "title": "Des projets qui <em>parlent</em> d'eux-mêmes.",
+    "lead": "Un aperçu de la manière dont nous combinons stratégie, design et technologie pour des marques exigeantes.",
+    "filters": [
+      "Tous",
+      "Branding",
+      "Web",
+      "Marketing",
+      "Automation"
+    ],
+    "projects": [
+      {
+        "id": "kavala",
+        "name": "Kavala Coffee — Identité complète",
+        "cat": "Branding",
+        "monogram": "K",
+        "hue": 175,
+        "desc": "Naming, logo et packaging d'une torréfaction artisanale. +38% de notoriété en 6 mois.",
+        "meta": "Stratégie de marque · Direction artistique",
+        "link": "case-kavala.html"
+      },
+      {
+        "id": "nova",
+        "name": "Nova Immo — Plateforme immobilière",
+        "cat": "Web",
+        "monogram": "N",
+        "hue": 190,
+        "desc": "Site vitrine + espace client. Temps de chargement divisé par 4, +52% de leads qualifiés.",
+        "meta": "UX / UI · Développement · SEO",
+        "link": "case-nova.html"
+      },
+      {
+        "id": "orbis",
+        "name": "Orbis Logistique — Workflows opérationnels",
+        "cat": "Automation",
+        "monogram": "O",
+        "hue": 160,
+        "desc": "Automatisation du suivi de commandes et du reporting. 14h de travail manuel gagnées chaque semaine.",
+        "meta": "CRM · n8n · Reporting temps réel",
+        "link": "case-orbis.html"
+      },
+      {
+        "id": "pulse",
+        "name": "Pulse Fitness — Campagne growth",
+        "cat": "Marketing",
+        "monogram": "P",
+        "hue": 12,
+        "desc": "Entonnoir social ads + email. Coût d'acquisition réduit de 31% en un trimestre.",
+        "meta": "Social Ads · Email · Landing pages",
+        "link": "case-pulse.html"
+      }
+    ]
+  },
+  "testimonials": {
+    "tag": "05 — Ils nous font confiance",
+    "title": "La parole à nos <em>clients</em>.",
+    "proof": "5,0 / 5 — note moyenne sur 120+ projets accompagnés.",
+    "items": [
+      {
+        "quote": "« MODULIS a su transformer une simple idée en une marque complète, cohérente et rentable. Un partenaire rare, qui comprend autant le business que le design. »",
+        "author": "Sarah Remy",
+        "role": "Fondatrice",
+        "company": "Kavala Coffee",
+        "avatar": "SR"
+      },
+      {
+        "quote": "« L'automatisation mise en place nous fait gagner 14 heures par semaine. Le ROI était atteint avant même la fin du premier mois. Impressionnant de rigueur. »",
+        "author": "David Koffi",
+        "role": "Directeur des opérations",
+        "company": "Orbis Logistique",
+        "avatar": "DK"
+      },
+      {
+        "quote": "« Un site magnifique, rapide, et surtout : des leads qui arrivent. MODULIS a répondu présent à chaque étape, avec une transparence totale sur les délais et les coûts. »",
+        "author": "Awa Mbaye",
+        "role": "Directrice marketing",
+        "company": "Nova Immo",
+        "avatar": "AM"
+      }
+    ]
+  },
+  "faq": {
+    "tag": "06 — Questions fréquentes",
+    "title": "Tout ce qu'il faut savoir <em>avant de démarrer</em>.",
+    "lead": "Tarifs, délais, engagement, propriété des livrables : les réponses claires, sans jargon ni promesse en l'air.",
+    "items": [
+      {
+        "question": "Combien coûte un projet avec MODULIS ?",
+        "answer": "Chaque projet est chiffré sur mesure après un premier échange gratuit. Les sites vitrines démarrent autour de 5 000 €, les identités de marque complètes autour de 4 000 €, et les automatisations selon leur périmètre. Vous recevez toujours un devis détaillé, sans surprise."
+      },
+      {
+        "question": "Quels sont les délais moyens ?",
+        "answer": "Un site vitrine se livre en 4 à 6 semaines, une identité de marque en 3 à 5 semaines, une automatisation en 2 à 4 semaines. Chaque jalon est planifié et validé avec vous — vous savez toujours où le projet en est."
+      },
+      {
+        "question": "À qui appartiennent les livrables ?",
+        "answer": "À vous, intégralement. Fichiers sources, maquettes, codes et contenus vous sont remis dès le paiement final. Vous restez libre à 100 %, sans abonnement ni droit de rétention."
+      },
+      {
+        "question": "Travaillez-vous avec tous les secteurs d'activité ?",
+        "answer": "Oui — nous accompagnons le retail, l'industrie, la santé, la restauration, le BTP, les services B2B et bien d'autres. Nous ne nous positionnons jamais sur votre métier : nous prenons le temps de le comprendre, puis nous l'habillons de la meilleure stratégie digitale."
+      },
+      {
+        "question": "Que se passe-t-il après le lancement ?",
+        "answer": "Vous choisissez : un forfait maintenance et suivi, ou des missions ponctuelles. Nous restons vos partenaires pour faire évoluer le projet, mesurer les résultats et optimiser la performance dans le temps."
+      },
+      {
+        "question": "Comment se passe le premier contact ?",
+        "answer": "Écrivez-nous via le formulaire ou réservez un créneau de 20 minutes. Nous échangeons sur vos objectifs, vous recevez sous 48h une première orientation stratégique — gratuite et sans engagement."
+      }
+    ]
+  },
+  "contact": {
+    "tag": "07 — Contact",
+    "title": "Un projet en tête ?\nConstruisons-le <em>ensemble</em>.",
+    "lead": "Racontez-nous votre ambition : nous revenons vers vous sous 24h avec un premier échange, sans engagement.",
+    "directEmail": "hello@modulis.tech",
+    "directPhone": "+237 6 78 23 96 36",
+    "bookingText": "Préférez échanger de vive voix ? Réservez un rendez-vous de 20 minutes."
+  },
+  "cases": {
+    "nova": {
+      "client": "Nova Immo",
+      "tag": "Site web & UX",
+      "title": "Nova Immo : un site qui <em>vend</em>, enfin.",
+      "lead": "Refonte intégrale de la plateforme d'une agence immobilière haut de gamme : vitesse, ergonomie et parcours d'acquisition repensés.",
+      "metrics": {
+        "kpi1Val": "x4",
+        "kpi1Label": "Vitesse de chargement",
+        "kpi2Val": "+52%",
+        "kpi2Label": "Leads qualifiés",
+        "kpi3Val": "100/100",
+        "kpi3Label": "Score Lighthouse",
+        "kpi4Val": "6 sem.",
+        "kpi4Label": "De la signature au live"
+      }
+    },
+    "kavala": {
+      "client": "Kavala Coffee",
+      "tag": "Branding & Direction artistique",
+      "title": "Kavala Coffee : une identité qui <em>emballe</em>.",
+      "lead": "Création d'une identité visuelle complète pour une marque de café de spécialité : du naming au packaging jusqu'au site e-commerce.",
+      "metrics": {
+        "kpi1Val": "+38%",
+        "kpi1Label": "De notoriété spontanée",
+        "kpi2Val": "12 000+",
+        "kpi2Label": "Paquets vendus en M1",
+        "kpi3Val": "4.9/5",
+        "kpi3Label": "Satisfaction clients",
+        "kpi4Val": "5 sem.",
+        "kpi4Label": "Délai de création"
+      }
+    },
+    "pulse": {
+      "client": "Pulse Fitness",
+      "tag": "Growth & Publicité",
+      "title": "Pulse Fitness : <em>-31%</em> de coût d'acquisition.",
+      "lead": "Mise en place d'une stratégie d'acquisition ultra-ciblée : tunnels publicitaires, pages de conversion dédiées et séquences emails personnalisées.",
+      "metrics": {
+        "kpi1Val": "-31%",
+        "kpi1Label": "Coût par lead (CPA)",
+        "kpi2Val": "+140%",
+        "kpi2Label": "D'abonnements générés",
+        "kpi3Val": "3.8x",
+        "kpi3Label": "ROAS moyen",
+        "kpi4Val": "3 mois",
+        "kpi4Label": "Durée de la campagne"
+      }
+    },
+    "orbis": {
+      "client": "Orbis Logistique",
+      "tag": "Automatisation & Workflows",
+      "title": "Orbis Logistique : <em>14 heures</em> gagnées chaque semaine.",
+      "lead": "Automatisation complète des flux d'information opérationnels, synchronisation des données d'entrepôt et reporting en temps réel.",
+      "metrics": {
+        "kpi1Val": "14h",
+        "kpi1Label": "Gagnées par semaine",
+        "kpi2Val": "0%",
+        "kpi2Label": "D'erreurs de saisie",
+        "kpi3Val": "1 mois",
+        "kpi3Label": "Pour rentabiliser le ROI",
+        "kpi4Val": "4 sem.",
+        "kpi4Label": "D'implémentation"
+      }
+    }
+  }
+}
