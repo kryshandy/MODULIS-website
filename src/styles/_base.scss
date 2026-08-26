@@ -77,7 +77,17 @@
     background: var(--gradient);
     -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
+
+    .twi {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      display: inline-block;
+    }
   }
 }
 
@@ -223,6 +233,11 @@
   vertical-align: top;
   padding-block: 0.08em;
   margin-block: -0.08em;
+
+  em & {
+    padding-inline: 0.05em;
+    margin-inline: -0.05em;
+  }
 }
 
 .twi {
