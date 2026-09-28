@@ -15,7 +15,8 @@ export default defineConfig({
         kavala: resolve(root, 'case-kavala.html'),
         nova: resolve(root, 'case-nova.html'),
         orbis: resolve(root, 'case-orbis.html'),
-        pulse: resolve(root, 'case-pulse.html')
+        pulse: resolve(root, 'case-pulse.html'),
+        nfc: resolve(root, 'cartes-nfc.html')
       }
     }
   }
