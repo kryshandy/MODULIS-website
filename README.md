@@ -72,3 +72,4 @@ npm run preview    # prévisualisation du build
 - Curseur personnalisé désactivé sur écrans tactiles
 - Build minifié : ~54 kB JS gzippé, ~8 kB CSS gzippé
 - Responsive validé sur 8 largeurs (375 → 1920px) + émulation tactile iPhone
+.......
