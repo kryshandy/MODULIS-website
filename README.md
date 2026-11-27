@@ -59,3 +59,8 @@ Ouvrez `index.html` dans un navigateur, ou lancez `npx serve .`
 
 Tout est dans le bloc `:root` en haut de `style.css`. Les couleurs du logo :
 sarcelle `#0A7F7D`, turquoise `#17BDBB`, sarcelle profond `#075E5E`, corail `#FD6552`.
+
+## Accessibilité
+
+- Navigation clavier avec indicateurs de focus visibles.
+- Sémantique ARIA sur les composants interactifs.
