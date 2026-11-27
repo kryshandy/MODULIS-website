@@ -1,75 +1,66 @@
-# MODULIS — Site Vitrine
+# Site MODULIS
 
-Site web vitrine professionnel de l'agence digitale **MODULIS** : communication & marketing, branding, développement web & app, automatisation.
-
-## Stack
-
-- **Vite 6** — bundler de développement
-- **SCSS** — design system maison (variables, mixins, layout responsive)
-- **GSAP + ScrollTrigger** — animations premium (intro hero, reveals, compteurs, timeline, spotlight)
-- **Lenis** — smooth scrolling
-- 100% front-end : aucun backend, aucune base de données
-
-## Démarrage
-
-```bash
-npm install
-npm run dev        # serveur de développement (http://localhost:5173)
-npm run build      # build de production dans /dist
-npm run preview    # prévisualisation du build
-```
+Site vitrine de MODULIS, agence de transformation digitale. *Construisons ensemble vos solutions.*
+HTML, CSS et JavaScript sans étape de compilation : le dossier se met en ligne tel quel.
 
 ## Structure
 
 ```
-├── index.html              # Structure sémantique complète (single-page)
-├── public/
-│   └── favicon.svg         # Logo MODULIS
-├── scripts/
-│   ├── verify.mjs          # Suite de tests e2e (Playwright + Chrome local)
-│   └── screenshot.mjs      # Captures des sections
-└── src/
-    ├── main.js             # Point d'entrée JS
-    ├── js/
-    │   ├── smooth.js       # Lenis + coordination GSAP ScrollTrigger
-    │   ├── preloader.js    # Chargement d'entrée + compteur 0→100
-    │   ├── cursor.js       # Curseur personnalisé (desktop uniquement)
-    │   ├── nav.js          # Navigation + menu mobile + ancres smooth
-    │   ├── animations.js   # Intro hero, reveals, compteurs, parallax, timeline, spotlight
-    │   ├── modules.js      # Grille modulaire signature (le "M" de MODULIS)
-    │   ├── work.js         # Filtres du portfolio
-    │   └── contact.js      # Validation du formulaire
-    └── styles/
-        ├── main.scss       # Point d'entrée CSS
-        └── _*.scss         # Design system + sections
+index.html                  la page (contenu et structure)
+assets/css/style.css        le design (couleurs, typographie, mise en page, responsive)
+assets/js/main.js           les interactions (animations, laboratoire, formulaire)
+assets/brand/logo-mark.svg  le logo M redessiné en vectoriel
+assets/brand/favicon.svg    l'icône de l'onglet
+assets/brand/*.png          vos fichiers de logo d'origine
 ```
 
-## Sections
+## Bibliothèques utilisées (chargées depuis un CDN)
 
-1. **Hero** — intro typographique animée, grille de fond, halos dégradés, spotlight interactif au curseur, badge rotatif, chips d'expertises flottants
-2. **Marquee** — bandeau défilant des expertises
-3. **Services** — 4 offres (Communication, Branding, Web/App, Automatisation) avec numéros filigrane au survol
-4. **À propos** — grille modulaire signature : 36 cellules forment le "M" de MODULIS en cascade animée
-5. **Méthode** — timeline verticale avec ligne dégradée dessinée au scroll
-6. **Réalisations** — portfolio filtrable (Tous / Branding / Web / Marketing / Automatisation), hover cinématique
-7. **Témoignages** — notes 5 étoiles, citations décoratives
-8. **Contact** — formulaire validé côté client + coordonnées
-9. **Footer** — marquee géant "MODULIS" en typographie XXL
+- **GSAP 3.12.5 + ScrollTrigger** : animations, défilement horizontal des expertises.
+- **Lenis 1.1.13** : défilement fluide.
+- **Archivo** (Google Fonts) : police variable dont la largeur est animée.
 
-## Design system
+Si un CDN ne répond pas, le site reste entièrement lisible.
 
-- Palette : noir profond `#06060B`, dégradé signature violet `#7C5CFF` → cyan `#22D3EE`
-- Typographie : Space Grotesk (titres), Inter (texte), JetBrains Mono (labels)
-- Texture grain cinématique globale, barre de progression du scroll
-- Curseur personnalisé avec état "Voir" sur les projets (mix-blend difference)
+## Interactions incluses
 
-## Accessibilité & performance
+- Écran d'ouverture : le logo se dessine (une seule fois par visite).
+- Accueil : grille de modules réactive à la souris, logo animé dont les points suivent le curseur.
+- Les cinq expertises défilent à l'horizontale sur **tous les écrans** (téléphone, tablette, ordinateur),
+  avec parallaxe des visuels, titres qui s'élargissent et légère inclinaison selon la vitesse.
+- Bandeau défilant dont la vitesse et le sens suivent le défilement.
+- Curseur personnalisé (ordinateur), barre de progression de lecture, bouton retour en haut avec anneau.
+- Laboratoire : carte NFC en 3D personnalisable, calculateur d'heures gagnées, halo qui suit la souris.
 
-- Support `prefers-reduced-motion` (animations désactivées à la demande)
-- Fallback `<noscript>` (contenu toujours visible sans JS)
-- Navigation clavier + focus visibles
-- Sémantique ARIA sur les composants interactifs
-- Curseur personnalisé désactivé sur écrans tactiles
-- Build minifié : ~54 kB JS gzippé, ~8 kB CSS gzippé
-- Responsive validé sur 8 largeurs (375 → 1920px) + émulation tactile iPhone
-.......
+Si le visiteur a demandé à réduire les animations, tout devient statique et lisible.
+Testé de 320 × 568 (petit téléphone) à 1920 × 1080, sans débordement.
+
+## Tester en local
+
+Ouvrez `index.html` dans un navigateur, ou lancez `npx serve .`
+
+## Mettre en ligne
+
+- **Netlify** ou **Vercel** : glissez le dossier dans l'interface.
+- **cPanel / hébergement classique** : envoyez le contenu du dossier dans `public_html`.
+
+## À compléter avant la mise en ligne
+
+1. **Formulaire** : dans `assets/js/main.js`, renseignez `FORM_ENDPOINT`
+   (par exemple `https://formspree.io/f/xxxxxxx`). Tant qu'il est vide, le formulaire invite à écrire ou appeler.
+2. **Réseaux sociaux** : dans `index.html`, section contact, remplacez `<span>LinkedIn</span>` etc. par des liens `<a href="https://...">`.
+3. **Politique de confidentialité** : créez la page et liez-la.
+4. **Engagements et FAQ** : relisez-les, ce sont des promesses faites aux clients.
+5. **Image de partage** : ajoutez une image 1200 × 630 px et la balise `og:image`.
+6. **Logo** : si vous avez le fichier vectoriel officiel (SVG ou AI) du logo, remplacez le symbole `#mk`
+   et le logo animé de l'accueil (`#heroMark`) dans `index.html`.
+
+## Couleurs
+
+Tout est dans le bloc `:root` en haut de `style.css`. Les couleurs du logo :
+sarcelle `#0A7F7D`, turquoise `#17BDBB`, sarcelle profond `#075E5E`, corail `#FD6552`.
+
+## Accessibilité
+
+- Navigation clavier avec indicateurs de focus visibles.
+- Sémantique ARIA sur les composants interactifs.
